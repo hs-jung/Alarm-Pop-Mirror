@@ -37,6 +37,9 @@
 - (IBAction)idField:(id)sender {
 }
 
+- (IBAction)nickNameField:(id)sender {
+}
+
 - (IBAction)pwfeild:(id)sender {
 }
 

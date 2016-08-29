@@ -35,10 +35,6 @@
     activityIndicator.hidden= FALSE;
     [activityIndicator startAnimating];
     
-    //Data Base 연결
-    
-   
-    
     //3초후 login화면으로 전환
     [NSTimer scheduledTimerWithTimeInterval : 3.0 target:self selector:@selector(switchView) userInfo:nil repeats:NO];
     
@@ -46,12 +42,9 @@
 
 
 -(void)switchView{
-    UIViewController *myViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
-    [self.view addSubview:myViewController.view];
-    
-    
-    //UIViewController * second = [loginViewController alloc];
-    //[self presentViewController:LoginViewController animated:YES completion:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * loginViewController = [storyboard   instantiateViewControllerWithIdentifier:@"loginViewController"] ;
+    [self presentViewController:loginViewController animated:YES completion:nil];
 
 }
 

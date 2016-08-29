@@ -21,6 +21,9 @@
     [timeField setFont:[UIFont fontWithName:@"Arial" size:45]];
     [dateField setFont:[UIFont fontWithName:@"Arial" size:40]];
     
+    //로고 표시
+    [_logoField setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"intro" ofType:@"png"]]];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -47,7 +50,7 @@
 }
 
 -(void) onTimer{
-    int pmonth,pday,phour,pminute,psecond;
+    int pmonth,pday,phour,pminute;
     
     NSCalendar *pCalendar=[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
@@ -58,10 +61,10 @@
     pday=(int)[comps day];
     phour=(int)[comps hour];
     pminute=(int)[comps minute];
-    psecond=(int)[comps second];
+    //psecond=(int)[comps second];
     
     dateField.text=[NSString stringWithFormat:@"%02d\n/ %02d",pmonth,pday];
-    timeField.text=[NSString stringWithFormat:@"%02d\n: %02d\n: %02d",phour,pminute,psecond];
+    timeField.text=[NSString stringWithFormat:@"%02d : %02d",phour,pminute];
 }
 
 @end

@@ -3,9 +3,9 @@
 
 include_once 'db_conn.php';
 
-$id =$_POST['id'];
+$id =$_GET['id'];
  
-$pw = $_POST['pw'];
+$pw = $_GET['pw'];
 
 global $conn;
 

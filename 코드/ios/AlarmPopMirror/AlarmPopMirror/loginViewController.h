@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "mainViewController.h"
 
 
 @class ViewController;
@@ -17,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *PWField;
 - (IBAction)backgroundTap:(id)sender;
 - (IBAction)signinClicked:(id)sender;
+
 
 @end

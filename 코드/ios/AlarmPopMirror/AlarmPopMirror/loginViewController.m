@@ -7,6 +7,7 @@
 //
 
 #import "loginViewController.h"
+#import "mainViewController.h"
 
 @interface loginViewController ()
 
@@ -48,6 +49,7 @@
     return YES;
 }
 
+/*
 //로그인버튼 클릭시
 - (IBAction)signinClicked:(id)sender {
     bool check =FALSE;
@@ -63,23 +65,93 @@
     }
     
 }
+ */
 
-//PHP로 전송
 
--(IBAction) postLocation: (id) sender{
+- (IBAction)signinClicked:(id)sender {
+    
+    NSInteger success = 0;
+    @try {
+        
+        if([[self.IDField text] isEqualToString:@""] || [[self.PWField text] isEqualToString:@""] ) {
+            
+            [self alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
+            
+        } else {
+            NSString *post =[[NSString alloc] initWithFormat:@"id=%@&pw=%@",[self.IDField text],[self.PWField text]];
+            NSLog(@"PostData: %@",post);
+            
+            NSURL *url=[NSURL URLWithString:@"http://10.251.20.247/login.php"];
+            
+            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+            
+            NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+            
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+            [request setURL:url];
+            [request setHTTPMethod:@"POST"];
+            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+            [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:postData];
+            
+            //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+            
+            NSError *error = [[NSError alloc] init];
+            NSHTTPURLResponse *response = nil;
+            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
+            NSLog(@"Response code: %ld", (long)[response statusCode]);
+            
+            if ([response statusCode] >= 200 && [response statusCode] < 300)
+            {
+                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+                NSLog(@"Response ==> %@", responseData);
+                
+                NSError *error = nil;
+                NSDictionary *jsonData = [NSJSONSerialization
+                                          JSONObjectWithData:urlData
+                                          options:NSJSONReadingMutableContainers
+                                          error:&error];
+                
+                success = [jsonData[@"Success"] integerValue];
+                NSLog(@"Success: %ld",(long)success);
+                
+                if(success == 1)
+                {
+                    NSLog(@"Login SUCCESS");
+                } else {
+                    
+                    NSString *error_msg = (NSString *) jsonData[@"error_message"];
+                    [self alertStatus:error_msg :@"Sign in Failed!" :0];
+                }
+                
+            } else {
+                if (error) NSLog(@"Error: %@", error);
+                [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
+            }
+        }
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+        [self alertStatus:@"Sign in Failed." :@"Error!" :0];
+    }
+    if (success==1) {
+        [self performSegueWithIdentifier:@"login_success" sender:self];
+    }
+    
+    
+}
 
-    NSString *latitude = @"37.3229978";
-    NSString *longitude = @"-122.0321823";
-    
-    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.mydomain.me/webservice.php"]];
-    [request setHTTPMethod:@"POST"];
-    
-    NSString *post =[[NSString alloc] initWithFormat:@"latitude=%@&longitude=%@&submit=",latitude,longitude];
-    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSURLResponse *response;
-    NSError *err;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    alertView.tag = tag;
+    [alertView show];
 }
 
 

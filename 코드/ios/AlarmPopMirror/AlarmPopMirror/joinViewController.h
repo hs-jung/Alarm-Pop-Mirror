@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface joinViewController : UIViewController
-- (IBAction)idField:(id)sender;
-- (IBAction)pwfeild:(id)sender;
-- (IBAction)pw2field:(id)sender;
+@interface joinViewController : UIViewController <UITextFieldDelegate>
+
 
 - (IBAction)idCheckButton:(id)sender;
 - (IBAction)joinButton:(id)sender;

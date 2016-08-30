@@ -34,22 +34,14 @@
 }
 */
 
-- (IBAction)idField:(id)sender {
-}
-
-- (IBAction)nickNameField:(id)sender {
-}
-
-- (IBAction)pwfeild:(id)sender {
-}
-
-- (IBAction)pw2field:(id)sender {
-}
-
+//ID 중복 체크
 - (IBAction)idCheckButton:(id)sender {
+
 }
 
+//회원 가입
 - (IBAction)joinButton:(id)sender {
+    
 }
 
 - (IBAction)cancleButton:(id)sender {

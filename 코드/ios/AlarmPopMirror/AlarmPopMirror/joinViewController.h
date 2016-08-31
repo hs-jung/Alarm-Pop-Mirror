@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "mainViewController.h"
 
 @interface joinViewController : UIViewController <UITextFieldDelegate>
 
@@ -16,5 +17,14 @@
 - (IBAction)cancleButton:(id)sender;
 
 - (IBAction)backgroundTap:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *IDField;
+@property (weak, nonatomic) IBOutlet UITextField *nickNameField;
+@property (weak, nonatomic) IBOutlet UITextField *PWField;
+@property (weak, nonatomic) IBOutlet UITextField *PW2Field;
+@property (weak, nonatomic) IBOutlet UIButton *addImage;
+
+
+@property  NSInteger checked;   //ID 체크 확인
 
 @end

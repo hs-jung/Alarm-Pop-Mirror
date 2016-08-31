@@ -7,6 +7,7 @@
 //
 
 #import "joinViewController.h"
+#import "mainViewController.h"
 
 @interface joinViewController ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _checked = 0;
+    
     // Do any additional setup after loading the view.
 }
 
@@ -36,12 +40,162 @@
 
 //ID 중복 체크
 - (IBAction)idCheckButton:(id)sender {
+    NSInteger success = 0;
+    @try {
+        
+        if([[self.IDField text] isEqualToString:@""]) {
+            
+            [self alertStatus:@"Please enter ID" :@"check Failed!" :0];
+            
+        } else {
+            NSString *post =[[NSString alloc] initWithFormat:@"id=%@",[self.IDField text]];
+            NSLog(@"PostData: %@",post);
+            
+            NSURL *url=[NSURL URLWithString:@"http://10.251.20.247/idcheck.php"];
+            
+            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+            
+            NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+            
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+            [request setURL:url];
+            [request setHTTPMethod:@"POST"];
+            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+            [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:postData];
+            
+            //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+            
+            NSError *error = [[NSError alloc] init];
+            NSHTTPURLResponse *response = nil;
+            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
+            NSLog(@"Response code: %ld", (long)[response statusCode]);
+            
+            if ([response statusCode] >= 200 && [response statusCode] < 300)
+            {
+                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+                NSLog(@"Response ==> %@", responseData);
+                
+                NSError *error = nil;
+                NSDictionary *jsonData = [NSJSONSerialization
+                                          JSONObjectWithData:urlData
+                                          options:NSJSONReadingMutableContainers
+                                          error:&error];
+                
+                success = [jsonData[@"Success"] integerValue];
+                NSLog(@"Success: %ld",(long)success);
+                
+                if(success == 1)
+                {
+                    [self alertStatus:@"checked" :@"사용 가능한 ID입니다." :0];
+                    //NSLog(@"사용 가능한 ID 입니다.");
+                } else if(success==2){
+                    
+                    NSString *error_msg = (NSString *) jsonData[@"error_message"];
+                    [self alertStatus:error_msg :@"동일한 아이디가 있습니다." :0];
+                } else{
+                    //기타 예외
+                }
+                
+            } else {
+                if (error) NSLog(@"Error: %@", error);
+                [self alertStatus:@"Connection Failed" :@"check Failed!" :0];
+            }
+        }
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+        [self alertStatus:@"check Failed." :@"Error!" :0];
+    }
+    if (success==1) {
+        _checked = 1;
+    }
 
 }
 
 //회원 가입
 - (IBAction)joinButton:(id)sender {
-    
+    NSInteger success = 0;
+    @try {
+        
+        if(_checked == 0){
+            [self alertStatus:@"ID 중복 확인을 해주세요." :@"join Failed!" :0];
+        }else{
+        
+            if([[self.IDField text] isEqualToString:@""] || [[self.nickNameField text] isEqualToString:@""] || [[self.PWField text] isEqualToString:@""] || [[self.PW2Field text] isEqualToString:@""])
+            {
+                
+                [self alertStatus:@"Please enter whole blank" :@"join Failed!" :0];
+            
+            } else {
+                if([self.PWField text] == [self.PW2Field text]){
+                    NSString *post =[[NSString alloc] initWithFormat:@"id=%@&nickname=%@&pw=%@",[self.IDField text],[self.nickNameField text],[self.PWField text]];
+                    NSLog(@"PostData: %@",post);
+                    
+                    NSURL *url=[NSURL URLWithString:@"http://10.251.20.247/joinus.php"];
+                    
+                    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+                    
+                    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+                    
+                    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+                    [request setURL:url];
+                    [request setHTTPMethod:@"POST"];
+                    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+                    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+                    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+                    [request setHTTPBody:postData];
+                    
+                    //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+                    
+                    NSError *error = [[NSError alloc] init];
+                    NSHTTPURLResponse *response = nil;
+                    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+                    
+                    NSLog(@"Response code: %ld", (long)[response statusCode]);
+                    
+                    if ([response statusCode] >= 200 && [response statusCode] < 300)
+                    {
+                        NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+                        NSLog(@"Response ==> %@", responseData);
+                        
+                        NSError *error = nil;
+                        NSDictionary *jsonData = [NSJSONSerialization
+                                                  JSONObjectWithData:urlData
+                                                  options:NSJSONReadingMutableContainers
+                                                  error:&error];
+                        
+                        success = [jsonData[@"Success"] integerValue];
+                        NSLog(@"Success: %ld",(long)success);
+                        
+                        if(success == 1){
+                            [self alertStatus:@"회원 가입을 축하드립니다." :@"WELECOME!" :0];
+                            NSLog(@"Join SUCCESS");
+                            [self switchView];
+                        } else if(success == 2) {
+                            NSString *error_msg = (NSString *) jsonData[@"error_message"];
+                            [self alertStatus:error_msg :@"Join Failed!" :0];
+                        }else{
+                            //기타 예외
+                        }
+                        
+                    } else {
+                        if (error) NSLog(@"Error: %@", error);
+                        [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
+                    }
+                }else{
+                    [self alertStatus:@"비밀번호를 확인해 주세요." :@"join Failed!" :0];
+                }
+                
+                            }
+        }
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+        [self alertStatus:@"Join Failed." :@"Error!" :0];
+    }
 }
 
 - (IBAction)cancleButton:(id)sender {
@@ -57,5 +211,40 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+//알람창
+- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    alertView.tag = tag;
+    [alertView show];
+}
+
+/*
+//알람창(OK버틀 클릭시 Main화면으로 이동)
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WELCOME!"
+                                                   message:@"회원 가입을 축하합니다."
+                                                  delegate:self
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles:nil, nil];
+    if (buttonIndex == 0) {
+        NSLog(@"Clicked YES");
+        [self switchView];
+    }
+}
+*/
+
+-(void)switchView{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * mainViewController = [storyboard   instantiateViewControllerWithIdentifier:@"mainViewController"] ;
+    [self presentViewController:mainViewController animated:YES completion:nil];
+}
+
 
 @end

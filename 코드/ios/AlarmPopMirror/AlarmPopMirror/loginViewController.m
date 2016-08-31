@@ -9,6 +9,8 @@
 #import "loginViewController.h"
 #import "mainViewController.h"
 
+
+
 @interface loginViewController ()
 
 @end
@@ -49,27 +51,8 @@
     return YES;
 }
 
-/*
-//로그인버튼 클릭시
+//로그인 버튼 클릭
 - (IBAction)signinClicked:(id)sender {
-    bool check =FALSE;
-    
-    //ID,PW 전송
-    
-    
-    if(check){
-        //화면전환
-    }
-    else{
-        //팝업
-    }
-    
-}
- */
-
-
-- (IBAction)signinClicked:(id)sender {
-    
     NSInteger success = 0;
     @try {
         

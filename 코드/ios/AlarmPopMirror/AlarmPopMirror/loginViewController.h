@@ -16,8 +16,11 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *IDField;
 @property (weak, nonatomic) IBOutlet UITextField *PWField;
+
 - (IBAction)backgroundTap:(id)sender;
 - (IBAction)signinClicked:(id)sender;
+
+
 
 
 @end

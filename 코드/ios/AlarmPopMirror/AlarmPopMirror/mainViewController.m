@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [self onTimer];
+    
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
     
     [timeField setFont:[UIFont fontWithName:@"Arial" size:45]];
@@ -23,6 +24,12 @@
     
     //로고 표시
     [_logoField setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"intro" ofType:@"png"]]];
+    
+    //일정 가져오기, 출력
+    
+    //memo 가져오기, 출력
+    
+    //날씨 가져오기, 출력
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -49,6 +56,7 @@
 - (IBAction)settingTouch:(id)sender {
 }
 
+//타이머 이벤트
 -(void) onTimer{
     int pmonth,pday,phour,pminute;
     
@@ -66,5 +74,7 @@
     dateField.text=[NSString stringWithFormat:@"%02d\n/ %02d",pmonth,pday];
     timeField.text=[NSString stringWithFormat:@"%02d : %02d",phour,pminute];
 }
+
+
 
 @end

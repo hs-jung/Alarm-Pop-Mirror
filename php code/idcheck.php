@@ -13,7 +13,7 @@
   mysqli_query($conn, "set session character_set_connection=UTF-8;");
 
   $sql = "select count(*) cnt from user where uuid = '".$id."';";
-  $result = mysqli_query($conn, $sql) or die("[{\"success\":\"3\"}]");        //success : 3 Db연결오류   
+  $result = mysqli_query($conn, $sql) or die("[{\"Success\":\"3\"}]");        //success : 3 Db연결오류   
   mysqli_data_seek($result,0);
   $row = mysqli_fetch_array($result);
   $total_record = $row['cnt'];

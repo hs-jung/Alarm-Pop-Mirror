@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "loginViewController.h"
 
-@interface changePWViewController : UIViewController
+@class ViewController;
+
+@interface changePWViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *PWField;
+@property (weak, nonatomic) IBOutlet UITextField *changedPWField;
+@property (weak, nonatomic) IBOutlet UITextField *changedPWField2;
+- (IBAction)backgroundTap:(id)sender;
+- (IBAction)changeClicked:(id)sender;
 
 @end

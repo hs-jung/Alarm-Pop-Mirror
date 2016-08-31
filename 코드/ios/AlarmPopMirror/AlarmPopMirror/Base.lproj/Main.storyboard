@@ -51,11 +51,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5fk-AW-EvR">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fk-AW-EvR">
                                 <rect key="frame" x="216" y="71" width="139" height="189"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-QY-W50">
@@ -121,7 +121,7 @@
                                 <rect key="frame" x="118" y="35" width="90" height="90"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -230,14 +230,14 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnU-l1-z1r">
                                 <rect key="frame" x="18" y="20" width="34" height="30"/>
                                 <state key="normal" title="back">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="fiJ-DD-hXa" kind="modal" id="zzc-qC-67o"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -259,7 +259,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q09-ir-bIf">
                                 <rect key="frame" x="27" y="20" width="34" height="30"/>
-                                <state key="normal" title="back"/>
+                                <state key="normal" title="back">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="YjE-ji-f8p" kind="show" id="V1c-0U-CMS"/>
                                 </connections>
@@ -300,7 +302,7 @@
                                 <rect key="frame" x="143" y="229" width="150" height="200"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -342,22 +344,34 @@
                                 <rect key="frame" x="202" y="195" width="110" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="i9W-2E-gnB" id="JPe-cL-hDP"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYW-Nl-m8r">
                                 <rect key="frame" x="202" y="281" width="110" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="i9W-2E-gnB" id="fBZ-7l-WMH"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cU7-U5-hKJ">
                                 <rect key="frame" x="202" y="238" width="110" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="i9W-2E-gnB" id="acw-2H-JoZ"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biL-mX-wZN">
-                                <rect key="frame" x="269" y="326" width="30" height="30"/>
+                                <rect key="frame" x="282" y="326" width="30" height="30"/>
                                 <state key="normal" title="변경">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="changeClicked:" destination="i9W-2E-gnB" eventType="touchUpInside" id="pGg-Vz-lwu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7M-42-wAw">
                                 <rect key="frame" x="202" y="326" width="45" height="30"/>
@@ -369,11 +383,25 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pNV-iy-HRy" appends="YES" id="nUn-du-pXk"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="PWField" destination="1On-fZ-Nxp" id="vbX-8j-aPw"/>
+                        <outlet property="changedPWField" destination="cU7-U5-hKJ" id="s7a-8J-G80"/>
+                        <outlet property="changedPWField2" destination="jYW-Nl-m8r" id="lC3-qU-p0r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMm-bM-2R8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pNV-iy-HRy">
+                    <connections>
+                        <action selector="backgroundTap:" destination="i9W-2E-gnB" id="8cl-Y0-y7s"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2395.5" y="832.5"/>
         </scene>
@@ -428,7 +456,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rku-xi-f19">
                                 <rect key="frame" x="21" y="20" width="34" height="30"/>
                                 <state key="normal" title="back">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="YjE-ji-f8p" kind="show" id="Svg-o8-0RP"/>
@@ -441,7 +469,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -462,20 +490,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUu-a0-C6c">
-                                <rect key="frame" x="27" y="20" width="34" height="30"/>
-                                <state key="normal" title="back"/>
+                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <state key="normal" title="back">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="YjE-ji-f8p" kind="show" id="TBr-gs-H8P"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRj-qG-3ex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.5" y="-339.5"/>
+            <point key="canvasLocation" x="1376.5" y="-328.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lo7-vu-9LK">
@@ -510,13 +540,6 @@
                                     <segue destination="buA-qg-cPx" kind="show" id="cTY-8K-As3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOf-Jv-giZ">
-                                <rect key="frame" x="293" y="274" width="30" height="30"/>
-                                <state key="normal" title="test"/>
-                                <connections>
-                                    <segue destination="fiJ-DD-hXa" kind="show" id="PVw-1A-VnW"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kro-kZ-Ucz">
                                 <rect key="frame" x="228" y="274" width="45" height="30"/>
                                 <state key="normal" title="sign in">
@@ -543,7 +566,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="DEc-8q-bR3" appends="YES" id="krl-hp-bv4"/>
@@ -601,9 +624,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsE-hf-Nhs">
-                                <rect key="frame" x="160" y="312" width="150" height="200"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFO-Iw-fDt">
                                 <rect key="frame" x="211" y="533" width="30" height="30"/>
                                 <state key="normal" title="join">
@@ -652,9 +672,9 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hNh-Tr-2eP">
-                                <rect key="frame" x="160" y="218" width="97" height="30"/>
+                                <rect key="frame" x="160" y="219" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="buA-qg-cPx" id="gc7-Dn-pJv"/>
                                 </connections>
@@ -662,7 +682,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R0g-vK-chl">
                                 <rect key="frame" x="160" y="266" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="buA-qg-cPx" id="vmE-bU-eeE"/>
                                 </connections>
@@ -675,14 +695,25 @@
                                     <outlet property="delegate" destination="buA-qg-cPx" id="h7R-Kc-XDg"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK9-oe-1qq">
+                                <rect key="frame" x="133" y="312" width="150" height="200"/>
+                                <state key="normal" title="Button" image="intro.png"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="HWI-gM-Whm" appends="YES" id="uCa-jn-NZh"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="IDField" destination="8lo-L3-Bgv" id="gBd-IR-6wX"/>
+                        <outlet property="PW2Field" destination="R0g-vK-chl" id="F7V-fJ-hMF"/>
+                        <outlet property="PWField" destination="hNh-Tr-2eP" id="HVy-2s-SSC"/>
+                        <outlet property="addImage" destination="FK9-oe-1qq" id="i4M-me-kjT"/>
+                        <outlet property="nickNameField" destination="5IO-JJ-ZHY" id="bIK-mK-1IO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ud5-Ag-abu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="HWI-gM-Whm">
@@ -694,6 +725,9 @@
             <point key="canvasLocation" x="431.5" y="1258.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="intro.png" width="568" height="1011"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zko-eT-Yzk"/>
         <segue reference="CsW-0C-FAf"/>

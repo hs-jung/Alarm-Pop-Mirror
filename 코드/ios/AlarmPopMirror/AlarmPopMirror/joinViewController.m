@@ -7,7 +7,7 @@
 //
 
 #import "joinViewController.h"
-#import "mainViewController.h"
+#import "loginViewController.h"
 
 @interface joinViewController ()
 
@@ -224,26 +224,10 @@
     [alertView show];
 }
 
-/*
-//알람창(OK버틀 클릭시 Main화면으로 이동)
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WELCOME!"
-                                                   message:@"회원 가입을 축하합니다."
-                                                  delegate:self
-                                         cancelButtonTitle:@"OK"
-                                         otherButtonTitles:nil, nil];
-    if (buttonIndex == 0) {
-        NSLog(@"Clicked YES");
-        [self switchView];
-    }
-}
-*/
-
 -(void)switchView{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController * mainViewController = [storyboard   instantiateViewControllerWithIdentifier:@"mainViewController"] ;
-    [self presentViewController:mainViewController animated:YES completion:nil];
+    UIViewController * loginViewController = [storyboard   instantiateViewControllerWithIdentifier:@"loginViewController"] ;
+    [self presentViewController:loginViewController animated:YES completion:nil];
 }
 
 

@@ -11,6 +11,7 @@
 
 
 
+
 @interface loginViewController ()
 
 @end
@@ -102,6 +103,7 @@
                 
                 if(success == 1)
                 {
+                    uuid = _IDField.text;
                     NSLog(@"Login SUCCESS");
                 } else {
                     

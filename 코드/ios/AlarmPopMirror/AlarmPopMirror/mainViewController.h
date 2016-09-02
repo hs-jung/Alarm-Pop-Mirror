@@ -28,4 +28,6 @@
 
 -(void) onTimer; // 타이머 이벤트
 
+extern NSString *uuid;
+
 @end

@@ -12,9 +12,12 @@
 
 @end
 
+NSString *uuid = nil;
+
 @implementation mainViewController
 
 - (void)viewDidLoad {
+    NSLog(@"uuid : %@",uuid);
     [self onTimer];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
@@ -24,6 +27,8 @@
     
     //로고 표시
     [_logoField setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"intro" ofType:@"png"]]];
+    
+    
     
     //일정 가져오기, 출력
     

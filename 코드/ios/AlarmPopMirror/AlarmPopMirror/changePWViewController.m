@@ -57,7 +57,7 @@
                 [self alertStatus:@"Please enter whole blank" :@"Change Password Failed!" :0];
                 
             } else {
-                NSString *post =[[NSString alloc] initWithFormat:@"pw=%@&new_pw=%@",[self.PWField text],[self.changedPWField text]];
+                NSString *post =[[NSString alloc] initWithFormat:@"id=%@&pw=%@&new_pw=%@",uuid,[self.PWField text],[self.changedPWField text]];
                 NSLog(@"PostData: %@",post);
                 
                 NSURL *url=[NSURL URLWithString:@"http://10.251.20.247/changepw.php"];
@@ -98,9 +98,15 @@
                     
                     if(success == 1)
                     {
+                        uuid = nil;
                         NSLog(@"Change Password SUCCESS");
+                        [self alertStatus:@"Please Log in Again" :@"Change Password Success!" :0];
                         [self switchView];
-                    } else {
+                    }else if (success == 2){
+                        [self alertStatus:@"현재 비밀번호가 일치하지 않습니다." :@"Change Password Failed!" :0];
+                    }
+                    
+                    else {
                         
                         NSString *error_msg = (NSString *) jsonData[@"error_message"];
                         [self alertStatus:error_msg :@"Change Password Failed!" :0];

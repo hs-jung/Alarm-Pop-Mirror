@@ -25,6 +25,7 @@
 		BE855B091D6B513000E621A5 /* newsSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855B081D6B513000E621A5 /* newsSettingViewController.m */; };
 		BE855B0C1D6B518F00E621A5 /* userSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855B0B1D6B518F00E621A5 /* userSettingViewController.m */; };
 		BE9162871D67595B00AADE20 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9162861D67595B00AADE20 /* mainViewController.m */; };
+		BEB88DD91D793EEA005BDB95 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB88DD81D793EEA005BDB95 /* settings.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		BE855B0B1D6B518F00E621A5 /* userSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSettingViewController.m; sourceTree = "<group>"; };
 		BE9162851D67595B00AADE20 /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
 		BE9162861D67595B00AADE20 /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
+		BEB88DD81D793EEA005BDB95 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		BE1CF2B81CF357720068D2F2 /* AlarmPopMirror */ = {
 			isa = PBXGroup;
 			children = (
+				BEB88DD81D793EEA005BDB95 /* settings.png */,
 				BE1CF2EE1CF374190068D2F2 /* intro.png */,
 				BE1CF2BC1CF357720068D2F2 /* AppDelegate.h */,
 				BE1CF2BD1CF357720068D2F2 /* AppDelegate.m */,
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1CF2EF1CF374190068D2F2 /* intro.png in Resources */,
+				BEB88DD91D793EEA005BDB95 /* settings.png in Resources */,
 				BE1CF2C91CF357720068D2F2 /* LaunchScreen.storyboard in Resources */,
 				BE1CF2C61CF357720068D2F2 /* Assets.xcassets in Resources */,
 				BE1CF2C41CF357720068D2F2 /* Main.storyboard in Resources */,

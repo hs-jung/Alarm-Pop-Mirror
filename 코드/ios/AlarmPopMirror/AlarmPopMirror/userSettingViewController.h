@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "mainViewController.h"
 
 @interface userSettingViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UILabel *userID;
+@property (weak, nonatomic) IBOutlet UILabel *nickName;
+
+- (IBAction)logoutClicked:(id)sender;
+
 
 @end

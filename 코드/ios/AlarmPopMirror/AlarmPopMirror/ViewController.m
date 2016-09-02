@@ -36,7 +36,7 @@
     [activityIndicator startAnimating];
     
     //3초후 login화면으로 전환
-    [NSTimer scheduledTimerWithTimeInterval : 3.0 target:self selector:@selector(switchView) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval : 2.0 target:self selector:@selector(switchView) userInfo:nil repeats:NO];
     
 }
 

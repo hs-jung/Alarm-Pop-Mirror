@@ -7,6 +7,7 @@
 //
 
 #import "userSettingViewController.h"
+#import "mainViewController.h"
 
 @interface userSettingViewController ()
 
@@ -16,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _userID.text=[NSString stringWithFormat:@"%@",uuid];
     // Do any additional setup after loading the view.
 }
 
@@ -34,4 +37,16 @@
 }
 */
 
+- (IBAction)logoutClicked:(id)sender {
+    NSLog(@"%@ LOGED OUT",uuid);
+    uuid == nil;
+    [self switchView];
+    
+}
+
+-(void)switchView{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * loginViewController = [storyboard   instantiateViewControllerWithIdentifier:@"loginViewController"] ;
+    [self presentViewController:loginViewController animated:YES completion:nil];
+}
 @end

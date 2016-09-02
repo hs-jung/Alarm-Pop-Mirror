@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "mainViewController.h"
+#import "loginViewController.h"
 
 @interface joinViewController : UIViewController <UITextFieldDelegate>
 

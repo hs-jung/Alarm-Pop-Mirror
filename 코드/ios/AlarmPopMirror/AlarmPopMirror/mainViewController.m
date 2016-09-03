@@ -31,13 +31,17 @@ NSString *uuid = nil;
     
     
     //일정 가져오기, 출력
+    _scheduleFiled.text = @"test SCHEDULE text.";
     
     //memo 가져오기, 출력
+    _memoField.text = @"test MEMO text.";
     
     //날씨 가져오기, 출력
+    _weatherField.text = @"test WEATHER test.";
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -16,6 +16,7 @@
 		BE1CF2D41CF357720068D2F2 /* AlarmPopMirrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1CF2D31CF357720068D2F2 /* AlarmPopMirrorTests.m */; };
 		BE1CF2DF1CF357720068D2F2 /* AlarmPopMirrorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1CF2DE1CF357720068D2F2 /* AlarmPopMirrorUITests.m */; };
 		BE1CF2EF1CF374190068D2F2 /* intro.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1CF2EE1CF374190068D2F2 /* intro.png */; };
+		BE1D0F161D7ADFB7002CE053 /* selectPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D0F151D7ADFB7002CE053 /* selectPhotoViewController.m */; };
 		BE413FDF1D704353002966DE /* changePWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE413FDE1D704353002966DE /* changePWViewController.m */; };
 		BE855AFA1D68C48100E621A5 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855AF91D68C48100E621A5 /* infoViewController.m */; };
 		BE855AFD1D68C80800E621A5 /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855AFC1D68C80800E621A5 /* settingViewController.m */; };
@@ -63,6 +64,8 @@
 		BE1CF2DE1CF357720068D2F2 /* AlarmPopMirrorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmPopMirrorUITests.m; sourceTree = "<group>"; };
 		BE1CF2E01CF357720068D2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE1CF2EE1CF374190068D2F2 /* intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro.png; sourceTree = "<group>"; };
+		BE1D0F141D7ADFB7002CE053 /* selectPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectPhotoViewController.h; sourceTree = "<group>"; };
+		BE1D0F151D7ADFB7002CE053 /* selectPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectPhotoViewController.m; sourceTree = "<group>"; };
 		BE413FDD1D704353002966DE /* changePWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changePWViewController.h; sourceTree = "<group>"; };
 		BE413FDE1D704353002966DE /* changePWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changePWViewController.m; sourceTree = "<group>"; };
 		BE855AF81D68C48100E621A5 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				BE1CF2BF1CF357720068D2F2 /* ViewController.h */,
 				BE1CF2C01CF357720068D2F2 /* ViewController.m */,
 				BE1CF2C21CF357720068D2F2 /* Main.storyboard */,
+				BE1D0F141D7ADFB7002CE053 /* selectPhotoViewController.h */,
+				BE1D0F151D7ADFB7002CE053 /* selectPhotoViewController.m */,
 				BE413FDD1D704353002966DE /* changePWViewController.h */,
 				BE413FDE1D704353002966DE /* changePWViewController.m */,
 				BE855B0A1D6B518F00E621A5 /* userSettingViewController.h */,
@@ -324,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1CF2C11CF357720068D2F2 /* ViewController.m in Sources */,
+				BE1D0F161D7ADFB7002CE053 /* selectPhotoViewController.m in Sources */,
 				BE855AFD1D68C80800E621A5 /* settingViewController.m in Sources */,
 				BE855B0C1D6B518F00E621A5 /* userSettingViewController.m in Sources */,
 				BE1CF2BE1CF357720068D2F2 /* AppDelegate.m in Sources */,

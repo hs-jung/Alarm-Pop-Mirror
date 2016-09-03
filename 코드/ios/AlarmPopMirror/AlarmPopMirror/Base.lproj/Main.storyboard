@@ -116,7 +116,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="APM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1os-Ha-1o1">
                                 <rect key="frame" x="169" y="631" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -171,6 +171,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGw-a4-wP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1376.5" y="1258.5"/>
+        </scene>
+        <!--Select Photo View Controller-->
+        <scene sceneID="WCs-Dc-Nzd">
+            <objects>
+                <viewController id="ZSN-u9-HrY" customClass="selectPhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rR0-3x-2TP"/>
+                        <viewControllerLayoutGuide type="bottom" id="wde-qK-TaS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D3m-hp-XNc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tv-Eu-NIH">
+                                <rect key="frame" x="26" y="20" width="34" height="30"/>
+                                <state key="normal" title="back">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGU-ue-Jja" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902.5" y="2101.5"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="rPf-q5-IFH">
@@ -305,7 +332,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NiG-uM-BLi">
                                 <rect key="frame" x="143" y="314" width="150" height="200"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="USER ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRT-5v-K9X">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user_ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRT-5v-K9X">
                                 <rect key="frame" x="190" y="146" width="103" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -335,10 +362,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifn-Cc-oPX">
-                                <rect key="frame" x="190" y="271" width="30" height="30"/>
-                                <state key="normal" title="변경"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPm-dY-osg">
                                 <rect key="frame" x="154" y="527" width="66" height="30"/>
                                 <state key="normal" title="LOG OUT">
@@ -346,6 +369,13 @@
                                 </state>
                                 <connections>
                                     <action selector="logoutClicked:" destination="3tQ-bA-9tL" eventType="touchUpInside" id="bVt-jf-WrR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifn-Cc-oPX">
+                                <rect key="frame" x="190" y="271" width="30" height="30"/>
+                                <state key="normal" title="변경"/>
+                                <connections>
+                                    <segue destination="ZSN-u9-HrY" kind="show" id="sAt-qd-Fh4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -652,6 +682,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27t-y5-cA4">
+                                <rect key="frame" x="302" y="274" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="fiJ-DD-hXa" kind="show" id="gGF-Hk-N36"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901961089999998" green="0.77254903320000001" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -785,6 +822,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK9-oe-1qq">
                                 <rect key="frame" x="133" y="312" width="150" height="200"/>
                                 <state key="normal" title="Button" image="intro.png"/>
+                                <connections>
+                                    <segue destination="ZSN-u9-HrY" kind="show" id="6aH-GD-En0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="join" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgd-gL-wMj">
                                 <rect key="frame" x="174" y="100" width="27" height="20"/>
@@ -826,5 +866,6 @@
         <segue reference="Dn2-3V-bgg"/>
         <segue reference="V1c-0U-CMS"/>
         <segue reference="zzc-qC-67o"/>
+        <segue reference="sAt-qd-Fh4"/>
     </inferredMetricsTieBreakers>
 </document>

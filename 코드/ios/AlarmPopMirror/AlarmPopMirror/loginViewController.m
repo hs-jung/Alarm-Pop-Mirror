@@ -19,8 +19,12 @@
 @implementation loginViewController
 
 - (void)viewDidLoad {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
     
 }
 

@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [_infoImageField setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"intro" ofType:@"png"]]];
+    [_infoImageField setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"infoImage" ofType:@"png"]]];
     }
 
 - (void)didReceiveMemoryWarning {

@@ -16,6 +16,8 @@
 @implementation joinViewController
 
 - (void)viewDidLoad {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]];
+    
     [super viewDidLoad];
     
     _checked = 0;

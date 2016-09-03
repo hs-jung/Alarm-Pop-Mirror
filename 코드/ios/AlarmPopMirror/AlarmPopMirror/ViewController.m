@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     //intro 이미지 표시
-    [_IntroView setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"intro" ofType:@"png"]]];
+    [_IntroView setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"introImage" ofType:@"png"]]];
     
     
     //activity indicator 시작

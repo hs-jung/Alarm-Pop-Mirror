@@ -16,6 +16,8 @@
 @implementation userSettingViewController
 
 - (void)viewDidLoad {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage2.png"]];
+    
     [super viewDidLoad];
     
     _userID.text=[NSString stringWithFormat:@"%@",uuid];

@@ -17,16 +17,18 @@ NSString *uuid = nil;
 @implementation mainViewController
 
 - (void)viewDidLoad {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]];
+    
     NSLog(@"uuid : %@",uuid);
     [self onTimer];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
     
-    [timeField setFont:[UIFont fontWithName:@"Arial" size:45]];
     [dateField setFont:[UIFont fontWithName:@"Arial" size:40]];
+    [timeField setFont:[UIFont fontWithName:@"DBLCDTempBlack" size:45]];
     
     //로고 표시
-    [_logoField setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"intro" ofType:@"png"]]];
+    [_logoField setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"logo2" ofType:@"png"]]];
     
     
     

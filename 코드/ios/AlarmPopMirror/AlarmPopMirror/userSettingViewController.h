@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "mainViewController.h"
 
-@interface userSettingViewController : UIViewController
+@interface userSettingViewController : UIViewController{
+    UIImagePickerController *picker;
+    UIImagePickerController *picker2;
+    IBOutlet UIImageView *userPhoto;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *userID;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
 
 - (IBAction)logoutClicked:(id)sender;
-
+- (IBAction)takePhoto;
+- (IBAction)choosePhoto;
 
 @end

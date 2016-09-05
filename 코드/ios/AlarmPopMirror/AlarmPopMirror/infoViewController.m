@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     [_infoImageField setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"infoImage" ofType:@"png"]]];
     }

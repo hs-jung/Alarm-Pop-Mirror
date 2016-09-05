@@ -16,9 +16,8 @@
   $sql1 = "insert into user (uuid, pw, uname, uface) value ( '".$id."',PASSWORD('".$pw."'), '".$nickname."', 'temp_value');";
   $result1 = mysqli_query($conn, $sql1) or die("{\"Success\":\"2\"}");   
 
-  $sql2 = "insert into memo (uuid, subject, content) value ( '".$id."','', 'Insert Memo');";
+  $sql2 = "insert into memo (uuid, subject, content) value ( '".$id."','', '');";
   $result2 = mysqli_query($conn, $sql2) or die("{\"Success\":\"2\"}"); 
-  
   echo "{\"Success\":\"1\"}";
     
 ?>

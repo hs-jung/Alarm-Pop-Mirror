@@ -11,6 +11,7 @@ include_once 'db_conn.php';
   }
 
   mysqli_query($conn, "set session character_set_connection=UTF-8;");
+  //$str = iconv("UTF-8","UTF-8/IGNORE",$content);
 
   $sql = "update memo set content = '".$content."' where uuid = '".$id."';";
   $result1 = mysqli_query($conn, $sql) or die("[{\"Success\":\"3\"}]");

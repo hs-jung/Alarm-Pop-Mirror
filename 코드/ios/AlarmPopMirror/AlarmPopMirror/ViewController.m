@@ -44,6 +44,7 @@
 -(void)switchView{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * loginViewController = [storyboard   instantiateViewControllerWithIdentifier:@"loginViewController"] ;
+    loginViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:loginViewController animated:YES completion:nil];
 
 }

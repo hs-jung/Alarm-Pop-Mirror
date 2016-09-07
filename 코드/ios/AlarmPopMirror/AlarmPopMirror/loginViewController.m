@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
 }
 
@@ -69,7 +69,7 @@
             NSString *post =[[NSString alloc] initWithFormat:@"id=%@&pw=%@",[self.IDField text],[self.PWField text]];
             NSLog(@"PostData: %@",post);
             
-            NSURL *url=[NSURL URLWithString:@"http://10.251.20.247/login.php"];
+            NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/login.php"];
             
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             
@@ -126,6 +126,7 @@
         [self alertStatus:@"Sign in Failed." :@"Error!" :0];
     }
     if (success==1) {
+        // .modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self performSegueWithIdentifier:@"login_success" sender:self];
     }
     

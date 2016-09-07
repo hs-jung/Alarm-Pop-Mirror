@@ -22,7 +22,9 @@
     
     _checked = 0;
     
-    // Do any additional setup after loading the view.
+    [userPhoto setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"addImage" ofType:@"png"]]];
+    
+    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +55,7 @@
             NSString *post =[[NSString alloc] initWithFormat:@"id=%@",[self.IDField text]];
             NSLog(@"PostData: %@",post);
             
-            NSURL *url=[NSURL URLWithString:@"http://10.251.20.247/idcheck.php"];
+            NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/idcheck.php"];
             
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             
@@ -136,7 +138,7 @@
                     NSString *post =[[NSString alloc] initWithFormat:@"id=%@&nickname=%@&pw=%@",[self.IDField text],[self.nickNameField text],[self.PWField text]];
                     NSLog(@"PostData: %@",post);
                     
-                    NSURL *url=[NSURL URLWithString:@"http://10.251.20.247/joinus.php"];
+                    NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/joinus.php"];
                     
                     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
                     
@@ -208,6 +210,32 @@
     [self.view endEditing:YES];
 }
 
+//사진 촬영
+- (IBAction)takePhoto {
+    picker =[[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+//사진 가져오기
+-(IBAction)choosePhoto{
+    picker2 =[[UIImagePickerController alloc] init];
+    picker2.delegate = self;
+    picker2.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker2 animated:YES completion:NULL];
+}
+
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *selectedPhoto = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [userPhoto setImage:selectedPhoto];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 //키보드 return
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
@@ -229,6 +257,7 @@
 -(void)switchView{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * loginViewController = [storyboard   instantiateViewControllerWithIdentifier:@"loginViewController"] ;
+    loginViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:loginViewController animated:YES completion:nil];
 }
 

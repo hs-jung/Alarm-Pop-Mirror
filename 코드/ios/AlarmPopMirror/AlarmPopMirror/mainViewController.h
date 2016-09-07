@@ -13,10 +13,11 @@
     NSTimer *timer;
     IBOutlet UILabel *timeField;
     IBOutlet UILabel *dateField;
+    IBOutlet UILabel *memoFeild;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *scheduleFiled; //일정 표시 text view
-@property (weak, nonatomic) IBOutlet UITextView *memoField; //메모 표시 text view
+
 @property (weak, nonatomic) IBOutlet UITextView *weatherField;  //날씨 표시 text view
 @property (weak, nonatomic) IBOutlet UIImageView *logoField;    //로고 표시 image view
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;  //info button

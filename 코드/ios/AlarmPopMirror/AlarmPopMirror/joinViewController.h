@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "loginViewController.h"
 
-@interface joinViewController : UIViewController <UITextFieldDelegate>
-
+@interface joinViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate>
+{
+    UIImagePickerController *picker;
+    UIImagePickerController *picker2;
+    IBOutlet UIImageView *userPhoto;
+}
 
 - (IBAction)idCheckButton:(id)sender;
 - (IBAction)joinButton:(id)sender;
@@ -18,11 +22,14 @@
 
 - (IBAction)backgroundTap:(id)sender;
 
+- (IBAction)takePhoto;
+- (IBAction)choosePhoto;
+
 @property (weak, nonatomic) IBOutlet UITextField *IDField;
 @property (weak, nonatomic) IBOutlet UITextField *nickNameField;
 @property (weak, nonatomic) IBOutlet UITextField *PWField;
 @property (weak, nonatomic) IBOutlet UITextField *PW2Field;
-@property (weak, nonatomic) IBOutlet UIButton *addImage;
+
 
 
 @property  NSInteger checked;   //ID 체크 확인

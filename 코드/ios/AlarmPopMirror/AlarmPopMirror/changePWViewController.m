@@ -16,10 +16,11 @@
 @implementation changePWViewController
 
 - (void)viewDidLoad {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage2.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]];
     
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +63,7 @@
                 NSString *post =[[NSString alloc] initWithFormat:@"id=%@&pw=%@&new_pw=%@",uuid,[self.PWField text],[self.changedPWField text]];
                 NSLog(@"PostData: %@",post);
                 
-                NSURL *url=[NSURL URLWithString:@"http://10.251.20.247/changepw.php"];
+                NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/changepw.php"];
                 
                 NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
                 
@@ -149,7 +150,9 @@
 -(void)switchView{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * loginViewController = [storyboard   instantiateViewControllerWithIdentifier:@"loginViewController"] ;
+    loginViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:loginViewController animated:YES completion:nil];
 }
+
 
 @end

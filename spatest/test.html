@@ -1,0 +1,53 @@
+<html>
+<head>
+	<script>
+	    window.onload = function() {
+	      setInterval(function() {
+	        /*
+	        var time = new Date();
+	        var datestr;
+	        var timestr;
+
+	        datestr = time.getDate() +"-"+ (time.getMonth()+1) +"-"+ time.getFullYear();
+	        timestr = time.getHours() +":"+ time.getMinutes() +":"+ time.getSeconds();
+
+	        //document.getElementsByName("date").innerHTML = datestr.toString();
+	        //document.getElementsByName("time").innerHTML = timestrstr.toString();
+
+	        document.getElementsByName("date").innerHTML = datestr;
+	        document.getElementsByName("time").innerHTML = timestr;
+
+	        //document.write(datestr);
+	        */
+
+	        document.getElementsById("date").innerHTML = datestr;
+	        document.getElementsById("time").innerHTML = timestr;
+	      }, 1000);
+	    }
+	</script>
+
+	<style type="text/css">
+          #box3 { width:100px; text-align:center; vertical-align:middle;}
+
+            body
+            {
+                background: center; 
+                background-color: gray;
+                overflow-y:hidden;
+            }
+    
+        </style>
+ </head>
+ <body>
+ 	
+   
+     <div style="float: left; border: 1px solid blue; width: 100%; height: 40%; ">
+     	<p id="date"></p>
+    </div>
+    <div style="float: left; border: 1px solid blue; width: 100%; height: 50%; ">
+    	<p id="time"></p>
+    </div>
+	
+	
+</body>
+</html>

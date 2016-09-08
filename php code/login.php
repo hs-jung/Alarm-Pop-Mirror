@@ -9,7 +9,7 @@ $pw = $_POST['pw'];
 
 global $conn;
 
-$sql = " select count(*) cnt from user where uuid = '".$id."' and pw = PASSWORD('".$pw."');";
+$sql = "select count(*) cnt from user where uuid = '".$id."' and pw = PASSWORD('".$pw."');";
 
 //echo $sql;
 //echo "<br><br>";

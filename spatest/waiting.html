@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	    <meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+	    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+	    <meta name="author" content="Sergey Pimenov and Metro UI CSS contributors">
+
+	    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+	    <title>Metro UI CSS - The front-end framework for developing projects on the web in Windows Metro Style</title>
+
+	    <link href="css/metro.css" rel="stylesheet">
+	    <link href="css/metro-icons.css" rel="stylesheet">
+	    <link href="css/metro-responsive.css" rel="stylesheet">
+	    <link href="css/metro-schemes.css" rel="stylesheet">
+	    <link href="css/metro-colors.css" rel="stylesheet">
+	    <link href="css/docs.css" rel="stylesheet">
+
+        <script language="JavaScript">
+            <!--
+            top.window.moveTo(0,0);
+            if (document.all) 
+            {
+             top.window.resizeTo(screen.availWidth,screen.availHeight);
+            }
+            else if (document.layers||document.getElementById) {
+            if (top.window.outerHeight<screen.availHeight||top.window.outerWidth<screen.availWidth){
+            top.window.outerHeight = screen.availHeight;
+            top.window.outerWidth = screen.availWidth;
+            }
+            }
+            //-->
+
+            var d = new Date();
+
+            document.write(d.getFullYear() + '/' + (d.getMonth() + 1) + '/'+ d.getDate() );
+
+
+            document.write('<br />'); // 줄바꿈
+
+            document.write(d.getHours() + ':' + d.getMinutes() +':'+d.getSeconds());
+            document.write(' ' + getday(d.getDay()) + '<br />'); // 일요일 = 0
+
+            function getday(day)
+            {
+                if(day == 0)
+                    return "Sun";
+                else if (day == 1)
+                    return "Mon";
+                else if (day == 2)
+                    return "Tue";
+                else if (day == 3)
+                    return "Wen";
+                else if (day == 4)
+                    return "Thu";
+                else if (day == 5)
+                    return "Fri";
+                else if (day == 6)
+                    return "Sat";
+
+            }
+        </script>
+        <style type="text/css">
+          #box3 { width:100px; text-align:center; vertical-align:middle;}
+
+            body
+            {
+                background: center; 
+                background-color: gray;
+                overflow-y:hidden;
+            }
+            div{
+                display:table-cell; 
+                
+            }
+
+        </style>
+	</head>
+<body>
+  
+    <div style="float: left;  width: 100%; height: 100%; ">
+   
+      <h1 id="box3">19:54</h1>
+    </div>
+     
+</body>
+</html>

@@ -71,7 +71,7 @@
             
             NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/login.php"];
             
-            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+            NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
             
             NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
             

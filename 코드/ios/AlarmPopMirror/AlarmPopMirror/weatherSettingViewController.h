@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "mainViewController.h"
 
-@interface weatherSettingViewController : UIViewController
+@interface weatherSettingViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+{
+    UITableView *tableView;
+    
+}
+
+@property (copy, nonatomic) NSMutableArray *location;
+@property (copy, nonatomic) NSMutableArray *temperature;
+@property (copy, nonatomic) NSMutableArray *rainProbability;
+@property (copy, nonatomic) NSMutableArray *subtext;
 
 @end

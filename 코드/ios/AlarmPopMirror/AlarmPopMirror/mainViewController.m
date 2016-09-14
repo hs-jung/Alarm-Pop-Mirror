@@ -13,8 +13,6 @@
 
 @end
 
-
-
 NSString *uuid = nil;
 NSString *userMemo = nil;
 BOOL checkChange = false;

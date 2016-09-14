@@ -34,6 +34,7 @@
 		BE1D0F731D7B566F002CE053 /* weatherButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F6D1D7B566F002CE053 /* weatherButton.png */; };
 		BE1D0F791D7B5C5D002CE053 /* infoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F781D7B5C5D002CE053 /* infoImage.png */; };
 		BE413FDF1D704353002966DE /* changePWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE413FDE1D704353002966DE /* changePWViewController.m */; };
+		BE4FC4381D89BF5500287543 /* addLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4FC4371D89BF5500287543 /* addLocationViewController.m */; };
 		BE53477C1D7DD3AE00B87004 /* albumButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477A1D7DD3AE00B87004 /* albumButton.png */; };
 		BE53477D1D7DD3AE00B87004 /* cameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477B1D7DD3AE00B87004 /* cameraButton.png */; };
 		BE53477F1D7DDFE200B87004 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477E1D7DDFE200B87004 /* plus.png */; };
@@ -103,6 +104,8 @@
 		BE1D0F781D7B5C5D002CE053 /* infoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoImage.png; sourceTree = "<group>"; };
 		BE413FDD1D704353002966DE /* changePWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changePWViewController.h; sourceTree = "<group>"; };
 		BE413FDE1D704353002966DE /* changePWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changePWViewController.m; sourceTree = "<group>"; };
+		BE4FC4361D89BF5500287543 /* addLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addLocationViewController.h; sourceTree = "<group>"; };
+		BE4FC4371D89BF5500287543 /* addLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addLocationViewController.m; sourceTree = "<group>"; };
 		BE53477A1D7DD3AE00B87004 /* albumButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = albumButton.png; sourceTree = "<group>"; };
 		BE53477B1D7DD3AE00B87004 /* cameraButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraButton.png; sourceTree = "<group>"; };
 		BE53477E1D7DDFE200B87004 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				BE1CF2BF1CF357720068D2F2 /* ViewController.h */,
 				BE1CF2C01CF357720068D2F2 /* ViewController.m */,
 				BE1CF2C21CF357720068D2F2 /* Main.storyboard */,
+				BE4FC4361D89BF5500287543 /* addLocationViewController.h */,
+				BE4FC4371D89BF5500287543 /* addLocationViewController.m */,
 				BE652A211D89212B00DD9BC8 /* editScheduleViewController.h */,
 				BE652A221D89212B00DD9BC8 /* editScheduleViewController.m */,
 				BE652A1B1D86CF1C00DD9BC8 /* addScheduleViewController.h */,
@@ -430,6 +435,7 @@
 				BE855B091D6B513000E621A5 /* newsSettingViewController.m in Sources */,
 				BE855AFA1D68C48100E621A5 /* infoViewController.m in Sources */,
 				BE855B031D6AE0B400E621A5 /* joinViewController.m in Sources */,
+				BE4FC4381D89BF5500287543 /* addLocationViewController.m in Sources */,
 				BE9162871D67595B00AADE20 /* mainViewController.m in Sources */,
 				BE413FDF1D704353002966DE /* changePWViewController.m in Sources */,
 			);

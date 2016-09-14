@@ -7,13 +7,17 @@
 //
 
 #import "mainViewController.h"
+#import "editScheduleViewController.h"
 
 @interface mainViewController ()
 
 @end
 
+
+
 NSString *uuid = nil;
 NSString *userMemo = nil;
+BOOL checkChange = false;
 
 @implementation mainViewController
 
@@ -35,13 +39,26 @@ NSString *userMemo = nil;
     _schedule_id = [[NSMutableArray alloc] init];
     _scheduleSubject = [[NSMutableArray alloc] init];
     _scheduleYmdt = [[NSMutableArray alloc] init];
+    _fullYmdt = [[NSMutableArray alloc] init];
     [self loadSchedule];
-    
-    
     
     //memo 가져오기, 출력
     [self loadMemo];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(textViewDidEndEditing:) name:UITextViewTextDidEndEditingNotification object:nil];
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 375, 40)];
+    [toolBar setTintColor:[UIColor lightGrayColor]];
+    UIBarButtonItem *doneButton1 = [[UIBarButtonItem alloc] initWithTitle:@"done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed)];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [toolBar setItems:[NSArray arrayWithObjects: space, doneButton1,nil]];
+    
+    [memoField setInputView:datePicker];
+    [memoField setInputAccessoryView:toolBar];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    
+    memoField.delegate = self;
     
     //날씨 가져오기, 출력
     //_weatherField.text = @"test WEATHER test.";
@@ -55,16 +72,6 @@ NSString *userMemo = nil;
     // Dispose of any resources that can be recreated.
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)settingTouch:(id)sender {
 }
@@ -155,6 +162,9 @@ NSString *userMemo = nil;
 -(void) saveMemo{
     NSInteger success = 0;
     NSString *replaced_memo= nil;
+   
+    if(checkChange){
+    
     @try {
         replaced_memo =[memoField.text stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
         
@@ -199,6 +209,7 @@ NSString *userMemo = nil;
                 
             if(success == 1)
             {
+                checkChange = false;
                 NSLog(@"save complete");
             } else {
                     
@@ -214,6 +225,7 @@ NSString *userMemo = nil;
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Modify Failed." :@"Error!" :0];
+    }
     }
 }
 
@@ -231,14 +243,8 @@ NSString *userMemo = nil;
 
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
-    //NSLog(@"textViewEndEditing");
     [self saveMemo];
     
-}
-
-//빈곳 tap하면 키보드 숨김
-- (IBAction)backgroundTap:(id)sender {
-        [self.view endEditing:YES];
 }
 
 //테이블 라인 갯수 설정
@@ -267,13 +273,55 @@ NSString *userMemo = nil;
 }
 
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger deleteNum = [indexPath row];
+    NSInteger arraySize = _schedule_id.count;
+    [self deleteSchedule:_schedule_id[deleteNum]];
+    
+    for(int i=deleteNum ; i<arraySize-1 ; i++){
+        _schedule_id[i] = _schedule_id[i+1];
+        _scheduleSubject[i] = _scheduleSubject[i+1];
+        _scheduleYmdt[i] = _scheduleYmdt[i+1];
+        _fullYmdt[i] = _fullYmdt[i+1];
+    }
+    
+    [_schedule_id removeObjectAtIndex:arraySize-1];
+    [_scheduleSubject removeObjectAtIndex:arraySize-1];
+    [_scheduleYmdt removeObjectAtIndex:arraySize-1];
+    [_fullYmdt removeObjectAtIndex:arraySize-1];
+    
+    [tableView reloadData];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSInteger cellNumber = indexPath.row;
+    editDate = [_fullYmdt[(long)cellNumber] substringWithRange:NSMakeRange(0,10)];
+    editTime = [_fullYmdt[(long)cellNumber] substringWithRange:NSMakeRange(11,5)];
+    editSubject = _scheduleSubject[cellNumber];
+    editScheduleId = _schedule_id[(long)cellNumber];
+    NSLog(@"%@",editScheduleId);
+    [self switchView];
+}
+
+
 //일정 가져오기
 
 - (void) loadSchedule{
-    NSDictionary *test;
+    NSDictionary *contents;
     NSMutableArray *userScheduleContents;
     NSInteger rows;
-    NSString *cuttedYmdt;
     
     @try {
         NSString *post =[[NSString alloc] initWithFormat:@"id=%@",uuid];
@@ -317,17 +365,101 @@ NSString *userMemo = nil;
             if(rows == 0)
             {
                 //do nothing
-            }else if (rows > 0) {
+            }else if(rows ==1){
+                [self.scheduleSubject addObject:[jsonData objectForKey:@"subject"]];
+                [self.scheduleYmdt addObject:[[jsonData objectForKey:@"ymdt"] substringWithRange:NSMakeRange(11,5)]];
+                [self.schedule_id addObject:[jsonData objectForKey:@"schedule_id"]];
+                [self.fullYmdt addObject:[contents objectForKey:@"ymdt"]];
+            }else if (rows > 1) {
                 
                 userScheduleContents = [jsonData objectForKey:@"array"];
                 
                 for(int i=0; i<rows; i++){
-                    test = userScheduleContents[i];
-                    [self.scheduleSubject addObject:[test objectForKey:@"subject"]];
-                    [self.scheduleYmdt addObject:[[test objectForKey:@"ymdt"] substringWithRange:NSMakeRange(11,8)]];
+                    contents = userScheduleContents[i];
+                    [self.scheduleSubject addObject:[contents objectForKey:@"subject"]];
+                    [self.scheduleYmdt addObject:[[contents objectForKey:@"ymdt"] substringWithRange:NSMakeRange(11,5)]];
+                    [self.schedule_id addObject:[contents objectForKey:@"schedule_id"]];
+                    [self.fullYmdt addObject:[contents objectForKey:@"ymdt"]];
                 }
-                
-                NSLog(@"Schedule Load SUCCESS");
+                //NSLog(@"Schedule Load SUCCESS");
+            }else{
+                NSString *error_msg = (NSString *) jsonData[@"error_message"];
+            }
+            
+        } else {
+            if (error) NSLog(@"Error: %@", error);
+        }
+        
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+    }
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    checkChange = true;
+}
+
+-(void) doneButtonPressed{
+    [self saveMemo];
+    [memoField resignFirstResponder];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    [self.view setFrame:CGRectMake(0,-170,375,667)];
+   
+}
+ -(void)keyboardDidHide:(NSNotification *)notification {
+         [self.view setFrame:CGRectMake(0,0,375,667)];
+}
+
+
+- (void) deleteSchedule:(id)sender{
+    NSInteger success;
+    
+    @try {
+        NSString *post =[[NSString alloc] initWithFormat:@"id=%@&sid=%@",uuid,sender];
+        NSLog(@"PostData: %@",post);
+        
+        NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/delesche.php"];
+        
+        NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSLog(@"Response code: %ld", (long)[response statusCode]);
+        
+        if ([response statusCode] >= 200 && [response statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSLog(@"Response ==> %@", responseData);
+            
+            NSError *error = nil;
+            
+            NSDictionary *jsonData = [NSJSONSerialization
+                                      JSONObjectWithData:urlData
+                                      options:NSJSONReadingMutableContainers
+                                      error:&error];
+            
+            success = [jsonData[@"Success"] integerValue];
+            NSLog(@"success: %ld",(long)success);
+            
+            if(success == 1)
+            {
+                [tableView reloadData];
+                [self alertStatus:@"삭제되었습니다." :@"Deleted!" :0];
                 
             }else{
                 NSString *error_msg = (NSString *) jsonData[@"error_message"];
@@ -343,83 +475,11 @@ NSString *userMemo = nil;
     }
 }
 
-
-//일정 추가
-- (IBAction) alertAddSchedule{
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Add Schedule"
-                                  message:@"Enter date, time and subject"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction * action) {
-                                                   [self addSchedule];
-                                                   
-                                               }];
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
-                                                   handler:^(UIAlertAction * action) {
-                                                       [alert dismissViewControllerAnimated:YES completion:nil];
-                                                   }];
-    
-    [alert addAction:ok];
-    [alert addAction:cancel];
-    
-    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 375, 40)];
-    [toolBar setTintColor:[UIColor lightGrayColor]];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed)];
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [toolBar setItems:[NSArray arrayWithObjects: space, doneButton,nil]];
-
-    
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *settingDate) {
-        
-        settingDate.placeholder = @"Date";
-        datePicker = [[UIDatePicker alloc] init];
-        datePicker.datePickerMode = UIDatePickerModeDate;
-        [settingDate setInputView:datePicker];
-        [settingDate setInputAccessoryView:toolBar];
-        
-        
-    }];
-    
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *settingTime) {
-        
-        settingTime.placeholder = @"Time";
-        timePicker = [[UIDatePicker alloc] init];
-        timePicker.datePickerMode = UIDatePickerModeTime;
-        [settingTime setInputView:timePicker];
-        [settingTime setInputAccessoryView:toolBar];
-    }];
-    
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        
-        textField.placeholder = @"subject";
-        [textField setInputAccessoryView:toolBar];
-    }];
-    
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
--(void) doneButtonPressed{
-    if(datePicker.enabled){
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:@"yyyy-mm-dd"];
-       // [alert.settingDate.text setText:[NSString stringWithFormat:@"%@",[formatter stringFromDate:datePicker.date]]];
-    }else if(timePicker.enabled){
-        NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
-        [formatter2 setTimeStyle:@"hh:mm:ss"];
-    }else{
-        
-    }
-    
-    [textField resignFirstResponder];
-}
-
-//일정 저장
-- (IBAction) addSchedule{
-    
-    
+-(void)switchView{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * editScheduleViewController = [storyboard  instantiateViewControllerWithIdentifier:@"editScheduleViewController"] ;
+    editScheduleViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:editScheduleViewController animated:YES completion:nil];
 }
 
 @end

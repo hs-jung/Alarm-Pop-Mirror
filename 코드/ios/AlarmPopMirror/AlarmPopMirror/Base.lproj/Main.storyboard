@@ -116,7 +116,7 @@
                                 <rect key="frame" x="330" y="36" width="25" height="25"/>
                                 <state key="normal" image="plus.png"/>
                                 <connections>
-                                    <action selector="alertAddSchedule" destination="fiJ-DD-hXa" eventType="touchUpInside" id="Yio-Jk-N4e"/>
+                                    <segue destination="FCp-GY-8ME" kind="modal" id="Wgc-4b-exN"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cv6-M9-2Qb">
@@ -133,9 +133,6 @@
                             </tableView>
                         </subviews>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="bqN-RD-9F8" appends="YES" id="Bb9-4m-BiF"/>
-                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -147,13 +144,110 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wl5-hG-PlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="bqN-RD-9F8">
+            </objects>
+            <point key="canvasLocation" x="902.5" y="464.5"/>
+        </scene>
+        <!--Edit Schedule View Controller-->
+        <scene sceneID="ipn-wf-HfJ">
+            <objects>
+                <viewController storyboardIdentifier="editScheduleViewController" id="qIN-lX-AYg" customClass="editScheduleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iup-zQ-Y40"/>
+                        <viewControllerLayoutGuide type="bottom" id="GQc-J2-KHB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2jp-Im-GAl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R4B-RP-26t">
+                                <rect key="frame" x="126" y="212" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SMQ-Lw-2V2">
+                                <rect key="frame" x="126" y="258" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MkC-GU-6ah">
+                                <rect key="frame" x="126" y="305" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ei5-MI-B0W">
+                                <rect key="frame" x="58" y="216" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="900-Vl-PR1">
+                                <rect key="frame" x="58" y="262" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbm-YC-gSs">
+                                <rect key="frame" x="58" y="308" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="일정 수정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np5-qJ-sPC">
+                                <rect key="frame" x="121" y="80" width="133" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="edit schedule" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMt-Qm-Yps">
+                                <rect key="frame" x="136" y="100" width="103" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zj-Vi-4uL">
+                                <rect key="frame" x="166" y="377" width="43" height="30"/>
+                                <state key="normal" title="delete"/>
+                                <connections>
+                                    <action selector="deleteButtonClicked:" destination="qIN-lX-AYg" eventType="touchUpInside" id="N0N-P1-zIo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxI-fQ-8mk">
+                                <rect key="frame" x="8" y="30" width="30" height="30"/>
+                                <state key="normal" image="backButton1.png"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="qIN-lX-AYg" eventType="touchUpInside" id="kqO-Zl-DYW"/>
+                                    <segue destination="fiJ-DD-hXa" kind="show" id="WlU-tH-Znr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLq-6f-JUT">
+                                <rect key="frame" x="333" y="30" width="32" height="30"/>
+                                <state key="normal" title="save"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="qIN-lX-AYg" eventType="touchUpInside" id="yKA-bt-R8Q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="WID-D2-iRf" appends="YES" id="RXQ-eG-ndU"/>
+                        </connections>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <action selector="backgroundTap:" destination="fiJ-DD-hXa" id="M2i-jJ-eMJ"/>
+                        <outlet property="dateSettingField" destination="R4B-RP-26t" id="hNF-2h-5sR"/>
+                        <outlet property="subjectSettingField" destination="MkC-GU-6ah" id="q8d-0p-Otb"/>
+                        <outlet property="timeSettingField" destination="SMQ-Lw-2V2" id="ABH-MR-DDb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UJz-IP-WL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WID-D2-iRf">
+                    <connections>
+                        <action selector="backgroundTap:" destination="qIN-lX-AYg" id="zxi-rs-Nth"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="902.5" y="464.5"/>
+            <point key="canvasLocation" x="902.5" y="1258.5"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="txg-4y-PMZ">
@@ -466,6 +560,13 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqj-Dv-bga">
+                                <rect key="frame" x="8" y="30" width="30" height="30"/>
+                                <state key="normal" image="backButton1.png"/>
+                                <connections>
+                                    <segue destination="3tQ-bA-9tL" kind="show" id="QKp-xh-bkz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <gestureRecognizers/>
                         <connections>
@@ -576,6 +677,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhS-uL-8Gz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1913.5" y="7.5"/>
+        </scene>
+        <!--Add Schedule View Controller-->
+        <scene sceneID="VGc-op-9rh">
+            <objects>
+                <viewController id="FCp-GY-8ME" customClass="addScheduleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZLS-Gn-Hvf"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZsV-1O-UeY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wzp-Vf-2ZI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucZ-6P-md7">
+                                <rect key="frame" x="8" y="30" width="30" height="30"/>
+                                <state key="normal" image="backButton1.png"/>
+                                <connections>
+                                    <segue destination="fiJ-DD-hXa" kind="modal" id="uuU-KH-mmr"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jaG-22-gPQ">
+                                <rect key="frame" x="126" y="194" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRR-th-cvK">
+                                <rect key="frame" x="126" y="241" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Res-25-vNZ">
+                                <rect key="frame" x="126" y="288" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-TL-IE2">
+                                <rect key="frame" x="58" y="198" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RS-4x-iCI">
+                                <rect key="frame" x="58" y="245" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfO-0t-hGr">
+                                <rect key="frame" x="58" y="292" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="일정 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duc-oF-GtI">
+                                <rect key="frame" x="153" y="80" width="77" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AL4-bh-CIa">
+                                <rect key="frame" x="326" y="30" width="39" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="save"/>
+                                <connections>
+                                    <action selector="addSchedule" destination="FCp-GY-8ME" eventType="touchUpInside" id="P9W-iX-ylG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="add schedule" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dH2-7c-KrH">
+                                <rect key="frame" x="149" y="100" width="81" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="M8U-uv-hTR" appends="YES" id="gSA-I8-7yr"/>
+                        </connections>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="dateSettingField" destination="jaG-22-gPQ" id="jV3-Le-OYh"/>
+                        <outlet property="subjectSettingField" destination="Res-25-vNZ" id="xLa-zP-Alx"/>
+                        <outlet property="timeSettingField" destination="zRR-th-cvK" id="SB7-vl-VL3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ob-sl-OXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="M8U-uv-hTR">
+                    <connections>
+                        <action selector="backgroundTap:" destination="FCp-GY-8ME" id="dIO-Ad-WFT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="902.5" y="-328.5"/>
         </scene>
         <!--Weather Setting View Controller-->
         <scene sceneID="bqM-1O-sXg">
@@ -862,8 +1058,8 @@
         <image name="weatherButton.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dn2-3V-bgg"/>
         <segue reference="CsW-0C-FAf"/>
-        <segue reference="zzc-qC-67o"/>
+        <segue reference="WlU-tH-Znr"/>
+        <segue reference="rg4-Vj-8DE"/>
     </inferredMetricsTieBreakers>
 </document>

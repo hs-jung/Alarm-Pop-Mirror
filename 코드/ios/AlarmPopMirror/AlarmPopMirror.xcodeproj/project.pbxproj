@@ -37,6 +37,8 @@
 		BE53477C1D7DD3AE00B87004 /* albumButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477A1D7DD3AE00B87004 /* albumButton.png */; };
 		BE53477D1D7DD3AE00B87004 /* cameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477B1D7DD3AE00B87004 /* cameraButton.png */; };
 		BE53477F1D7DDFE200B87004 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477E1D7DDFE200B87004 /* plus.png */; };
+		BE652A1D1D86CF1C00DD9BC8 /* addScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE652A1C1D86CF1C00DD9BC8 /* addScheduleViewController.m */; };
+		BE652A231D89212B00DD9BC8 /* editScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE652A221D89212B00DD9BC8 /* editScheduleViewController.m */; };
 		BE855AFA1D68C48100E621A5 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855AF91D68C48100E621A5 /* infoViewController.m */; };
 		BE855AFD1D68C80800E621A5 /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855AFC1D68C80800E621A5 /* settingViewController.m */; };
 		BE855B001D68CA0400E621A5 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855AFF1D68CA0400E621A5 /* loginViewController.m */; };
@@ -104,6 +106,10 @@
 		BE53477A1D7DD3AE00B87004 /* albumButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = albumButton.png; sourceTree = "<group>"; };
 		BE53477B1D7DD3AE00B87004 /* cameraButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraButton.png; sourceTree = "<group>"; };
 		BE53477E1D7DDFE200B87004 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		BE652A1B1D86CF1C00DD9BC8 /* addScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addScheduleViewController.h; sourceTree = "<group>"; };
+		BE652A1C1D86CF1C00DD9BC8 /* addScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addScheduleViewController.m; sourceTree = "<group>"; };
+		BE652A211D89212B00DD9BC8 /* editScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editScheduleViewController.h; sourceTree = "<group>"; };
+		BE652A221D89212B00DD9BC8 /* editScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editScheduleViewController.m; sourceTree = "<group>"; };
 		BE855AF81D68C48100E621A5 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		BE855AF91D68C48100E621A5 /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
 		BE855AFB1D68C80800E621A5 /* settingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingViewController.h; sourceTree = "<group>"; };
@@ -176,6 +182,10 @@
 				BE1CF2BF1CF357720068D2F2 /* ViewController.h */,
 				BE1CF2C01CF357720068D2F2 /* ViewController.m */,
 				BE1CF2C21CF357720068D2F2 /* Main.storyboard */,
+				BE652A211D89212B00DD9BC8 /* editScheduleViewController.h */,
+				BE652A221D89212B00DD9BC8 /* editScheduleViewController.m */,
+				BE652A1B1D86CF1C00DD9BC8 /* addScheduleViewController.h */,
+				BE652A1C1D86CF1C00DD9BC8 /* addScheduleViewController.m */,
 				BE413FDD1D704353002966DE /* changePWViewController.h */,
 				BE413FDE1D704353002966DE /* changePWViewController.m */,
 				BE855B0A1D6B518F00E621A5 /* userSettingViewController.h */,
@@ -408,10 +418,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE652A1D1D86CF1C00DD9BC8 /* addScheduleViewController.m in Sources */,
 				BE1CF2C11CF357720068D2F2 /* ViewController.m in Sources */,
 				BE855AFD1D68C80800E621A5 /* settingViewController.m in Sources */,
 				BE855B0C1D6B518F00E621A5 /* userSettingViewController.m in Sources */,
 				BE1CF2BE1CF357720068D2F2 /* AppDelegate.m in Sources */,
+				BE652A231D89212B00DD9BC8 /* editScheduleViewController.m in Sources */,
 				BE855B001D68CA0400E621A5 /* loginViewController.m in Sources */,
 				BE855B061D6B50F100E621A5 /* weatherSettingViewController.m in Sources */,
 				BE1CF2BB1CF357720068D2F2 /* main.m in Sources */,

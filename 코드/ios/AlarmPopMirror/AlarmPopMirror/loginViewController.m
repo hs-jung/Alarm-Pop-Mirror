@@ -10,8 +10,6 @@
 #import "mainViewController.h"
 
 
-
-
 @interface loginViewController ()
 
 @end
@@ -19,29 +17,16 @@
 @implementation loginViewController
 
 - (void)viewDidLoad {
+    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage.png"]];
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 //자동로그인
 
@@ -110,11 +95,9 @@
                     uuid = _IDField.text;
                     NSLog(@"Login SUCCESS");
                 } else {
-                    
                     NSString *error_msg = (NSString *) jsonData[@"error_message"];
                     [self alertStatus:error_msg :@"Sign in Failed!" :0];
                 }
-                
             } else {
                 if (error) NSLog(@"Error: %@", error);
                 [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];

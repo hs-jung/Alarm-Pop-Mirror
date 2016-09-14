@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "editScheduleViewController.h"
 
 @interface mainViewController : UIViewController<UITextViewDelegate,UITableViewDelegate, UITableViewDataSource>
 {
@@ -17,11 +18,9 @@
     IBOutlet UILabel *weatehrField;
     
     UITextView *textView;
-    UITextField *textField;
     UITableView *tableView;
     UIDatePicker *datePicker;
     UIDatePicker *timePicker;
-    
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoField;    //로고 표시 image view
@@ -29,13 +28,13 @@
 @property (copy, nonatomic) NSMutableArray *scheduleSubject;
 @property (copy, nonatomic) NSMutableArray *schedule_id;
 @property (copy, nonatomic) NSMutableArray *scheduleYmdt;
+@property (copy, nonatomic) NSMutableArray *fullYmdt;
 @property (nonatomic, retain) UITableView *tableView;
 
 - (IBAction)settingTouch:(id)sender;    //setting 버튼 클릭했을 때
 - (IBAction) functionPressed:(id)sender; //기능 버튼 클릭했을 때
 - (void) onTimer; // 타이머 이벤트
 - (IBAction)memoPressed;  //메모 수정
-- (IBAction)alertAddSchedule;
 
 extern NSString *uuid;
 extern NSString *userMemo;

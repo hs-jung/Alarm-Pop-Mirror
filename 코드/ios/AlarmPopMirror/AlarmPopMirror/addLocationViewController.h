@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface addLocationViewController : UIViewController
+@interface addLocationViewController : UIViewController<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>{
+    
+    UIPickerView *cityPicker;
+    NSArray *pickData;
+}
+
+@property (weak, nonatomic) IBOutlet UITextField *cityField;
+
+- (IBAction)backgroundTap:(id)sender;
 
 @end

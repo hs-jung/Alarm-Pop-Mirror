@@ -136,12 +136,12 @@ NSString *editScheduleId = nil;
         NSHTTPURLResponse *response = nil;
         NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        NSLog(@"Response code: %ld", (long)[response statusCode]);
+        //NSLog(@"Response code: %ld", (long)[response statusCode]);
         
         if ([response statusCode] >= 200 && [response statusCode] < 300)
         {
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-            NSLog(@"Response ==> %@", responseData);
+            //NSLog(@"Response ==> %@", responseData);
             
             NSError *error = nil;
             
@@ -151,13 +151,13 @@ NSString *editScheduleId = nil;
                                       error:&error];
             
             success = [jsonData[@"Success"] integerValue];
-            NSLog(@"success: %ld",(long)success);
+            //NSLog(@"success: %ld",(long)success);
             
             if(success == 1)
             {
-                NSLog(@"일정 수정 완료");
+                //NSLog(@"일정 수정 완료");
                 [self switchView];
-                [self alertStatus:@"수정되었습니다." :@"Changed!" :0];
+                //[self alertStatus:@"수정되었습니다." :@"Changed!" :0];
                 
                 
             }else{
@@ -200,12 +200,12 @@ NSString *editScheduleId = nil;
         NSHTTPURLResponse *response = nil;
         NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        NSLog(@"Response code: %ld", (long)[response statusCode]);
+        //NSLog(@"Response code: %ld", (long)[response statusCode]);
         
         if ([response statusCode] >= 200 && [response statusCode] < 300)
         {
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-            NSLog(@"Response ==> %@", responseData);
+            //NSLog(@"Response ==> %@", responseData);
             
             NSError *error = nil;
             

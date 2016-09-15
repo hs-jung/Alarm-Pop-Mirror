@@ -12,12 +12,16 @@
 @interface weatherSettingViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *tableView;
-    
+    UIDatePicker *datePicker;
 }
 
 @property (copy, nonatomic) NSMutableArray *location;
-@property (copy, nonatomic) NSMutableArray *temperature;
-@property (copy, nonatomic) NSMutableArray *rainProbability;
+@property (copy, nonatomic) NSMutableArray *skyName;
+@property (copy, nonatomic) NSMutableArray *skyCode;
+@property (copy, nonatomic) NSMutableArray *tc;
+@property (copy, nonatomic) NSMutableArray *tmax;
+@property (copy, nonatomic) NSMutableArray *tmin;
 @property (copy, nonatomic) NSMutableArray *subtext;
+
 
 @end

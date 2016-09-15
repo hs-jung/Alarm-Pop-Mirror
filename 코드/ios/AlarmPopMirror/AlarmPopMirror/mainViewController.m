@@ -457,7 +457,7 @@ BOOL checkChange = false;
             if(success == 1)
             {
                 [tableView reloadData];
-                [self alertStatus:@"삭제되었습니다." :@"Deleted!" :0];
+                //[self alertStatus:@"삭제되었습니다." :@"Deleted!" :0];
                 
             }else{
                 NSString *error_msg = (NSString *) jsonData[@"error_message"];

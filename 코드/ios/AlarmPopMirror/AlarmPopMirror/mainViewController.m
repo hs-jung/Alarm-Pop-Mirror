@@ -279,15 +279,21 @@ BOOL checkChange = false;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger deleteNum = [indexPath row];
+    NSLog(@"deletenum : %ld",deleteNum);
     NSInteger arraySize = _schedule_id.count;
     [self deleteSchedule:_schedule_id[deleteNum]];
     
-    for(int i=deleteNum ; i<arraySize-1 ; i++){
-        _schedule_id[i] = _schedule_id[i+1];
-        _scheduleSubject[i] = _scheduleSubject[i+1];
-        _scheduleYmdt[i] = _scheduleYmdt[i+1];
-        _fullYmdt[i] = _fullYmdt[i+1];
+    if(arraySize == 1){
+        //do nothing
+    }else{
+        for(int i=(int)deleteNum ; i<arraySize-1 ; i++){
+            _schedule_id[i] = _schedule_id[i+1];
+            _scheduleSubject[i] = _scheduleSubject[i+1];
+            _scheduleYmdt[i] = _scheduleYmdt[i+1];
+            _fullYmdt[i] = _fullYmdt[i+1];
+        }
     }
+    
     
     [_schedule_id removeObjectAtIndex:arraySize-1];
     [_scheduleSubject removeObjectAtIndex:arraySize-1];
@@ -307,7 +313,7 @@ BOOL checkChange = false;
     NSInteger cellNumber = indexPath.row;
     editDate = [_fullYmdt[(long)cellNumber] substringWithRange:NSMakeRange(0,10)];
     editTime = [_fullYmdt[(long)cellNumber] substringWithRange:NSMakeRange(11,5)];
-    editSubject = _scheduleSubject[cellNumber];
+    editSubject = _scheduleSubject[(long)cellNumber];
     editScheduleId = _schedule_id[(long)cellNumber];
     NSLog(@"%@",editScheduleId);
     [self switchView];
@@ -315,7 +321,6 @@ BOOL checkChange = false;
 
 
 //일정 가져오기
-
 - (void) loadSchedule{
     NSDictionary *contents;
     NSMutableArray *userScheduleContents;
@@ -457,7 +462,7 @@ BOOL checkChange = false;
             if(success == 1)
             {
                 [tableView reloadData];
-                //[self alertStatus:@"삭제되었습니다." :@"Deleted!" :0];
+                [self alertStatus:@"삭제되었습니다." :@"Deleted!" :0];
                 
             }else{
                 NSString *error_msg = (NSString *) jsonData[@"error_message"];

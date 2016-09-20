@@ -22,36 +22,29 @@
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [super viewDidLoad];
     
+    _code = [[NSMutableArray alloc] init];
     _location = [[NSMutableArray alloc] init];
     _skyCode = [[NSMutableArray alloc] init];
     _skyName = [[NSMutableArray alloc] init];
     _tc = [[NSMutableArray alloc] init];
     _tmax = [[NSMutableArray alloc] init];
     _tmin = [[NSMutableArray alloc] init];
-    
     _subtext = [[NSMutableArray alloc] init];
     
-    [_location addObject:@"서울 특별시"];
-    //[_location addObject:@"충주시"];
-    //[_location addObject:@"익산시"];
-    //[_location addObject:@"제주도"];
-    //[_location addObject:@"독도"];
-    //[_location addObject:@"울릉도"];
+    [self loadLocation];
     
-    [self loadWeather];
+    NSInteger arrSize = [_location count];
     
-    NSLog(@"code : %@",_skyCode[0]);
-    NSLog(@"name : %@",_skyName[0]);
-    NSLog(@"tc : %@",_tc[0]);
-    NSLog(@"tmax : %@",_tmax[0]);
-    NSLog(@"tmin : %@",_tmin[0]);
     
     for(int i=0; i<[_location count]; i++){
-        
-        _subtext[i] = [NSString stringWithFormat:@"%@ %@'C (%@'C / %@'C)", _skyName[i], _tc[i], _tmin[i], _tmax[i]];
+        [self loadWeather:_code[i]];
     }
+    //NSLog(@"load finish-load finish-load finish-load finish-,,,,,%d",arrSize);
     
-     NSLog(@"sub : %@",_subtext[0]);
+    for(int i=0; i<[_location count]; i++){
+        _subtext[i] = [NSString stringWithFormat:@"%@ %@'C (%@'C / %@'C)", _skyName[i], _tc[i], _tmin[i], _tmax[i]];
+        NSLog(@"subtext : %@",_subtext[i]);
+    }
     
 }
 
@@ -136,9 +129,10 @@
 {
     NSInteger deleteNum = [indexPath row];
     NSInteger arraySize = _location.count;
-    [self deleteLocation:_location[deleteNum]];
+    [self deleteLocation:(int)deleteNum];
     
-    for(int i = deleteNum ; i<arraySize-1 ; i++){
+    
+    for(int i = (int)deleteNum ; i<arraySize-1 ; i++){
         _location[i] = _location[i+1];
         _subtext[i] = _subtext[i+1];
     }
@@ -149,14 +143,14 @@
     [tableView reloadData];
 }
 
-- (void) deleteLocation:(id)sender{
+- (void) deleteLocation:(int)sender{
     NSInteger success;
     
     @try {
-        NSString *post =[[NSString alloc] initWithFormat:@"id=%@&location=%@",uuid,sender];
+        NSString *post =[[NSString alloc] initWithFormat:@"id=%@&stdid=%@&city=%@",uuid,_code[sender],_location[sender]];
         NSLog(@"PostData: %@",post);
         
-        NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/delesche.php"];
+        NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/deleteweatherloca.php"];
         
         NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         
@@ -215,16 +209,16 @@
 }
 
 //지역 가져오기
--(void)loadLacation{
+-(void)loadLocation{
     NSDictionary *contents;
-    NSMutableArray *userScheduleContents;
+    NSMutableArray *userWeatherContents;
     NSInteger rows;
     
     @try {
         NSString *post =[[NSString alloc] initWithFormat:@"id=%@",uuid];
         NSLog(@"PostData: %@",post);
         
-        NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/schedule.php"];
+        NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/weatherloca.php"];
         
         NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         
@@ -263,20 +257,26 @@
             {
                 //do nothing
             }else if(rows ==1){
-                [self.location addObject:[jsonData objectForKey:@"location"]];
+                NSLog(@"load location success");
+                [self.code addObject:[jsonData objectForKey:@"stdid"]];
+                [self.location addObject:[jsonData objectForKey:@"city"]];
+                NSLog(@"load location success");
                 
             }else if (rows > 1) {
                 
-                userScheduleContents = [jsonData objectForKey:@"array"];
+                userWeatherContents = [jsonData objectForKey:@"array"];
                 
                 for(int i=0; i<rows; i++){
-                    contents = userScheduleContents[i];
-                    [self.location addObject:[contents objectForKey:@"location"]];
-                                    }
+                    contents = userWeatherContents[i];
+                    [self.code addObject:[contents objectForKey:@"stdid"]];
+                    [self.location addObject:[contents objectForKey:@"city"]];
+                    NSLog(@"teset ::: %@,%@",_location[i],_code[i]);
+                }
                 //NSLog(@"Schedule Load SUCCESS");
             }else{
                 NSString *error_msg = (NSString *) jsonData[@"error_message"];
             }
+            NSLog(@"load location success");
             
         } else {
             if (error) NSLog(@"Error: %@", error);
@@ -289,12 +289,9 @@
 }
 
 //날씨 가져오기
--(void)loadWeather {
-
-    NSString *stnid = @"108";
-    
+-(void)loadWeather :(id) sender{
     @try {
-        NSString *url = [[NSString alloc] initWithFormat:@"http://apis.skplanetx.com/weather/current/minutely?&Content-Length=320&Content-Type=utf-8&Accept=application/json&Accept-Language=ko&host=www.skplanetx.com&appKey=49712187-23b7-3bc4-a200-8b30d4daf837&version=1&stnid=%@", stnid];
+        NSString *url = [[NSString alloc] initWithFormat:@"http://apis.skplanetx.com/weather/current/minutely?&Content-Length=320&Content-Type=utf-8&Accept=application/json&Accept-Language=ko&host=www.skplanetx.com&appKey=49712187-23b7-3bc4-a200-8b30d4daf837&version=1&stnid=%@", sender];
         
         NSString *serviceUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
@@ -303,11 +300,9 @@
         
         NSURLConnection *joinConnection = [NSURLConnection connectionWithRequest:request delegate:self];
         
-        //Get Responce hear----------------------
         NSHTTPURLResponse *response;
         NSError *error;
         NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        //NSString *strdata=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
         
         NSDictionary *weather;
         NSArray *minutely;
@@ -331,15 +326,11 @@
                                       error:&error];
             
             weather = [jsonData objectForKey:@"weather"];
-            NSLog(@"test1: %@",weather);
             
             minutely =  [weather objectForKey:@"minutely"];
-            NSLog(@"test2: %@",minutely[0]);
             temp = minutely[0];
             sky =  [temp objectForKey:@"sky"];
-            NSLog(@"testtest: %@",sky);
             temperature =  [temp objectForKey:@"temperature"];
-            NSLog(@"testtest: %@",temperature);
             
             [self.skyName addObject:[sky objectForKey:@"name"]];
             [self.skyCode addObject:[sky objectForKey:@"code"]];

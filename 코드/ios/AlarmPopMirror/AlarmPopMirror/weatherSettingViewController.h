@@ -15,6 +15,7 @@
     UIDatePicker *datePicker;
 }
 
+@property (copy, nonatomic) NSMutableArray *code;
 @property (copy, nonatomic) NSMutableArray *location;
 @property (copy, nonatomic) NSMutableArray *skyName;
 @property (copy, nonatomic) NSMutableArray *skyCode;

@@ -860,6 +860,9 @@
                                 <frame key="frameInset" minX="321" minY="28" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="save"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="bep-wf-kl6" eventType="touchUpInside" id="RUc-FI-96M"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypd-9x-bgb">
                                 <frame key="frameInset" minX="8" minY="30" width="30" height="30"/>
@@ -883,20 +886,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2d-cq-yu2">
-                                <frame key="frameInset" minX="151" minY="198" width="190" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bfg-GS-PMa">
-                                <frame key="frameInset" minX="151" minY="257" width="190" height="30"/>
+                                <frame key="frameInset" minX="105" minY="210" width="190" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hhu-On-BEb">
-                                <frame key="frameInset" minX="151" minY="320" width="190" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2d-cq-yu2">
+                                <frame key="frameInset" minX="105" minY="272" width="190" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -910,6 +907,7 @@
                     </view>
                     <connections>
                         <outlet property="cityField" destination="c2d-cq-yu2" id="2dZ-lA-fXk"/>
+                        <outlet property="locationField" destination="bfg-GS-PMa" id="u0Y-Vk-nhk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFe-NE-R57" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -924,7 +922,7 @@
         <!--Weather Setting View Controller-->
         <scene sceneID="bqM-1O-sXg">
             <objects>
-                <viewController id="1Et-88-x24" customClass="weatherSettingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weatherSettingViewController" id="1Et-88-x24" customClass="weatherSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nWV-fS-Nzp"/>
                         <viewControllerLayoutGuide type="bottom" id="LVD-Pr-VO2"/>

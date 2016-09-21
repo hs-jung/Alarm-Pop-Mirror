@@ -13,6 +13,7 @@ include_once 'db_conn.php';
   mysqli_query($conn, "set session character_set_connection=UTF-8;");
 
   $sql = "delete from schedule where uuid = '".$id."' and  schedule_id =".$schedule_id.";";
-  $result = mysqli_query($conn, $sql) or die("[{\"umemo_id\":\"-3\"}]");        //success : 3 Db연결오류   
+  $result = mysqli_query($conn, $sql) or die("{\"Success\":\"3\"}");        //success : 3 Db연결오류   
+  echo "{\"Success\":\"1\"}";
  
 ?>

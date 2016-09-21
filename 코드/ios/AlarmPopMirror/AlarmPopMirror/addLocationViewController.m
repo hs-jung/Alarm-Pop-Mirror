@@ -30,7 +30,6 @@
     cityPicker.delegate = self;
     cityPicker.dataSource = self;
     
-    //NSNumber *stdid = [[NSNumber alloc]init];
     stdid = [[NSNumber alloc]init];
     
     locationData = [[NSArray alloc] initWithObjects:@"---- location ----",@"특별시 / 광역시",@"경기도",@"강원도",@"충청북도",@"충청남도",@"전라북도",@"전라남도",@"경상북도",@"경상남도",@"제주 특별 자치도",nil];
@@ -45,9 +44,6 @@
     cityData8 = [[NSArray alloc] initWithObjects:@"---- city ----",@"경주시",@"구미시",@"문경시",@"봉화군",@"상주시",@"안동시",@"영덕군",@"영주시",@"영천시",@"울릉군",@"울진군",@"의성군",@"청송군",@"포항시",nil];
     cityData9 = [[NSArray alloc] initWithObjects:@"---- city ----",@"거제시",@"거창군",@"김해시",@"남해군",@"밀양시",@"산청군",@"양산시",@"의련군",@"진주시",@"창원시",@"통영시",@"함양군군",@"합천군",nil];
     cityData10 = [[NSArray alloc] initWithObjects:@"---- city ----",@"서귀포시",@"제주시",nil];
-    
-    
-    // Do any additional setup after loading the view.
     
     locationPicker.tag=1;
     cityPicker.tag=2;

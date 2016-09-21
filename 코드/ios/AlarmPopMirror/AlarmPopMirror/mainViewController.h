@@ -15,8 +15,7 @@
     IBOutlet UILabel *timeField;
     IBOutlet UILabel *dateField;
     IBOutlet UITextView *memoField;
-    IBOutlet UILabel *weatehrField;
-    
+    IBOutlet UILabel *weatherField;
     UITextView *textView;
     UITableView *tableView;
     UIDatePicker *datePicker;
@@ -39,4 +38,13 @@
 extern NSString *uuid;
 extern NSString *userMemo;
 
+extern NSInteger weatherArraySize;
+extern NSMutableArray *codeArray;
+extern NSMutableArray *locationArray;
+extern NSMutableArray *skyNameArray;
+extern NSMutableArray *skyCodeArray;
+extern NSMutableArray *tcArray;
+extern NSMutableArray *tminArray;
+extern NSMutableArray *tmaxArray;
+extern NSMutableArray *subtextArray;
 @end

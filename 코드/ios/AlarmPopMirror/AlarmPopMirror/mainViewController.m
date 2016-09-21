@@ -17,6 +17,16 @@ NSString *uuid = nil;
 NSString *userMemo = nil;
 BOOL checkChange = false;
 
+NSInteger weatherArraySize = 0;
+NSMutableArray *codeArray = nil;
+NSMutableArray *locationArray = nil;
+NSMutableArray *skyNameArray = nil;
+NSMutableArray *skyCodeArray = nil;
+NSMutableArray *tcArray = nil;
+NSMutableArray *tminArray = nil;
+NSMutableArray *tmaxArray = nil;
+NSMutableArray *subtextArray = nil;
+
 @implementation mainViewController
 
 - (void)viewDidLoad {
@@ -59,7 +69,41 @@ BOOL checkChange = false;
     memoField.delegate = self;
     
     //날씨 가져오기, 출력
-    //_weatherField.text = @"test WEATHER test.";
+    
+    codeArray = [[NSMutableArray alloc] init];
+    locationArray = [[NSMutableArray alloc] init];
+    skyCodeArray = [[NSMutableArray alloc] init];
+    skyNameArray = [[NSMutableArray alloc] init];
+    tcArray = [[NSMutableArray alloc] init];
+    tminArray = [[NSMutableArray alloc] init];
+    tmaxArray = [[NSMutableArray alloc] init];
+    subtextArray = [[NSMutableArray alloc] init];
+        
+    [self loadLocation];
+    
+    NSLog(@"test weather Array Size ::: %d",(int)weatherArraySize);
+    [weatherField setText:[NSString stringWithFormat:@"count test ::: %d",(int)weatherArraySize]];
+    
+    for(int i = 0; i< weatherArraySize; i++){
+        [self loadWeather:codeArray[i]];
+        NSLog(@"testtesttest ::: %@", codeArray[i]);
+        NSLog(@"testtesttest ::: %@", locationArray[i]);
+        NSLog(@"testtesttest ::: %@", skyCodeArray[i]);
+        NSLog(@"testtesttest ::: %@", skyNameArray[i]);
+        NSLog(@"testtesttest ::: %@", tcArray[i]);
+        NSLog(@"testtesttest ::: %@", tminArray[i]);
+        NSLog(@"testtesttest ::: %@", tmaxArray[i]);
+    }
+    
+    for(int i=0; i<weatherArraySize; i++) {
+        NSLog(@"test code Array ::: %@",codeArray[i]);
+        subtextArray[i] = [NSString stringWithFormat:@"%@ %@℃(%@℃ / %@℃)",skyNameArray[i], tcArray[i],tminArray[i], tmaxArray[i]];
+        
+        NSLog(@"testtesttest ::: %@", subtextArray[i]);
+    }
+    
+    
+    
     
     [super viewDidLoad];
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -484,5 +528,150 @@ BOOL checkChange = false;
     editScheduleViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:editScheduleViewController animated:YES completion:nil];
 }
+
+//지역 가져오기
+-(void)loadLocation{
+    NSDictionary *contents;
+    NSMutableArray *userWeatherContents;
+    NSInteger rows;
+    
+    @try {
+        NSString *post =[[NSString alloc] initWithFormat:@"id=%@",uuid];
+        NSLog(@"PostData: %@",post);
+        
+        NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/weatherloca.php"];
+        
+        NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSLog(@"Response code: %ld", (long)[response statusCode]);
+        
+        if ([response statusCode] >= 200 && [response statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSLog(@"Response ==> %@", responseData);
+            
+            NSError *error = nil;
+            
+            NSDictionary *jsonData = [NSJSONSerialization
+                                      JSONObjectWithData:urlData
+                                      options:NSJSONReadingMutableContainers
+                                      error:&error];
+            
+            rows = [jsonData[@"rows"] integerValue];
+            NSLog(@"rows: %ld",(long)rows);
+            
+            if(rows == 0)
+            {
+                //do nothing
+            }else if(rows ==1){
+                
+                weatherArraySize = 1;
+                [codeArray addObject:[jsonData objectForKey:@"stdid"]];
+                [locationArray addObject:[jsonData objectForKey:@"city"]];
+                //NSLog(@"load location success");
+                
+            }else if (rows > 1) {
+                
+                userWeatherContents = [jsonData objectForKey:@"array"];
+                weatherArraySize = rows;
+                
+                for(int i=0; i<rows; i++){
+                    contents = userWeatherContents[i];
+                    [codeArray addObject:[contents objectForKey:@"stdid"]];
+                    [locationArray addObject:[contents objectForKey:@"city"]];
+                    //NSLog(@"teset ::: %@,%@",_location[i],_code[i]);
+                }
+                //NSLog(@"Schedule Load SUCCESS");
+            }else{
+                NSString *error_msg = (NSString *) jsonData[@"error_message"];
+            }
+            NSLog(@"load location success");
+            
+        } else {
+            if (error) NSLog(@"Error: %@", error);
+        }
+        
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+    }
+}
+
+//날씨 가져오기
+-(void)loadWeather :(id) sender{
+    @try {
+        NSString *url = [[NSString alloc] initWithFormat:@"http://apis.skplanetx.com/weather/current/minutely?&Content-Length=320&Content-Type=utf-8&Accept=application/json&Accept-Language=ko&host=www.skplanetx.com&appKey=49712187-23b7-3bc4-a200-8b30d4daf837&version=1&stnid=%@", sender];
+        
+        NSString *serviceUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:serviceUrl]];
+        
+        NSURLConnection *joinConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+        
+        NSHTTPURLResponse *response;
+        NSError *error;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSDictionary *weather;
+        NSArray *minutely;
+        NSDictionary *today;
+        NSDictionary *sky;
+        NSDictionary *temperature;
+        NSDictionary *temp;
+        
+        NSLog(@"Response code: %ld", (long)[response statusCode]);
+        
+        if ([response statusCode] >= 200 && [response statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSLog(@"Response ==> %@", responseData);
+            
+            NSError *error = nil;
+            
+            NSDictionary *jsonData = [NSJSONSerialization
+                                      JSONObjectWithData:urlData
+                                      options:NSJSONReadingMutableContainers
+                                      error:&error];
+            
+            weather = [jsonData objectForKey:@"weather"];
+            
+            minutely =  [weather objectForKey:@"minutely"];
+            temp = minutely[0];
+            sky =  [temp objectForKey:@"sky"];
+            temperature =  [temp objectForKey:@"temperature"];
+            
+            [skyNameArray addObject:[sky objectForKey:@"name"]];
+            [skyCodeArray addObject:[sky objectForKey:@"code"]];
+            [tcArray addObject:[temperature objectForKey:@"tc"]];
+            [tmaxArray addObject:[temperature objectForKey:@"tmax"]];
+            [tminArray addObject:[temperature objectForKey:@"tmin"]];
+            
+        } else {
+            if (error) NSLog(@"Error: %@", error);
+        }
+        
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+    }
+    
+    
+}
+
 
 @end

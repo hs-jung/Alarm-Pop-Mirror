@@ -151,7 +151,7 @@
                         <outlet property="logoField" destination="Mij-iK-TZK" id="o26-uW-dw2"/>
                         <outlet property="memoField" destination="WIN-b0-ByR" id="Cg3-k9-sNH"/>
                         <outlet property="timeField" destination="nSl-jq-8YK" id="log-lJ-vOI"/>
-                        <outlet property="weatehrField" destination="hqv-CQ-Uuv" id="Iqo-AB-KVK"/>
+                        <outlet property="weatherField" destination="hqv-CQ-Uuv" id="CYk-p7-SgC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wl5-hG-PlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1256,9 +1256,9 @@
         <image name="weatherButton.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oGz-5M-BKF"/>
-        <segue reference="TBr-gs-H8P"/>
+        <segue reference="CsW-0C-FAf"/>
         <segue reference="zzc-qC-67o"/>
+        <segue reference="oGz-5M-BKF"/>
         <segue reference="rg4-Vj-8DE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,7 +20,4 @@
 - (IBAction)backgroundTap:(id)sender;
 - (IBAction)signinClicked:(id)sender;
 
-
-
-
 @end

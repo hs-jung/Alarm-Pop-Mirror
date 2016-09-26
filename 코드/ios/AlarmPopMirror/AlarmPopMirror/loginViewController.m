@@ -48,7 +48,7 @@
         
         if([[self.IDField text] isEqualToString:@""] || [[self.PWField text] isEqualToString:@""] ) {
             
-            [self alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
+            [self alertStatus:@"ID 와 비밀번호를 입력하세요." :@"Sign in Failed!" :0];
             
         } else {
             NSString *post =[[NSString alloc] initWithFormat:@"id=%@&pw=%@",[self.IDField text],[self.PWField text]];

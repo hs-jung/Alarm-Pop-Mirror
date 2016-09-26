@@ -136,6 +136,7 @@
             
             if(success == 1)
             {
+                [self loadWeather:stdid];
                 [self switchView];
                 NSLog(@"Location Add SUCCESS");
             } else {
@@ -170,7 +171,7 @@
 
 -(void)switchView{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController * weatherViewController = [storyboard  instantiateViewControllerWithIdentifier:@"weatherSettingViewController"] ;
+    UIViewController * weatherViewController = [storyboard  instantiateViewControllerWithIdentifier:@"weatherSettingViewController"];
     weatherViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:weatherViewController animated:YES completion:nil];
 }
@@ -433,7 +434,6 @@
                     break;
             }
             
-            //NSLog(@"STDID : %@",stdid);
             _cityField.text = [cityData0 objectAtIndex:row];
         }
     }
@@ -465,5 +465,91 @@
     }
 }
 
+//날씨 가져오기
+-(void)loadWeather :(id) sender{
+    @try {
+        NSString *url = [[NSString alloc] initWithFormat:@"http://apis.skplanetx.com/weather/current/minutely?&Content-Length=320&Content-Type=utf-8&Accept=application/json&Accept-Language=ko&host=www.skplanetx.com&appKey=49712187-23b7-3bc4-a200-8b30d4daf837&version=1&stnid=%@", sender];
+        
+        NSString *serviceUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:serviceUrl]];
+        
+        NSURLConnection *joinConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+        
+        NSHTTPURLResponse *response;
+        NSError *error;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSDictionary *weather;
+        NSArray *minutely;
+        NSDictionary *station;
+        NSDictionary *today;
+        NSDictionary *sky;
+        NSDictionary *temperature;
+        NSDictionary *temp;
+        
+        NSLog(@"Response code: %ld", (long)[response statusCode]);
+        
+        if ([response statusCode] >= 200 && [response statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSLog(@"Response ==> %@", responseData);
+            
+            NSError *error = nil;
+            
+            NSDictionary *jsonData = [NSJSONSerialization
+                                      JSONObjectWithData:urlData
+                                      options:NSJSONReadingMutableContainers
+                                      error:&error];
+            
+            weather = [jsonData objectForKey:@"weather"];
+            
+            minutely =  [weather objectForKey:@"minutely"];
+            temp = minutely[0];
+            station = [temp objectForKey:@"station"];
+            sky =  [temp objectForKey:@"sky"];
+            temperature =  [temp objectForKey:@"temperature"];
+            
+            [codeArray addObject:[station objectForKey:@"id"]];
+            [locationArray addObject:[station objectForKey:@"name"]];
+            [skyNameArray addObject:[sky objectForKey:@"name"]];
+            NSString *tempName =[sky objectForKey:@"name"];
+            [skyCodeArray addObject:[sky objectForKey:@"code"]];
+            [tcArray addObject:[temperature objectForKey:@"tc"]];
+            NSString *temptc =[temperature objectForKey:@"tc"];
+            [tmaxArray addObject:[temperature objectForKey:@"tmax"]];
+            NSString *temptmax =[temperature objectForKey:@"tmax"];
+            [tminArray addObject:[temperature objectForKey:@"tmin"]];
+            NSString *temptmin =[temperature objectForKey:@"tmin"];
+            NSString *codeForImage = [sky objectForKey:@"code"];
+            
+            if ([codeForImage isEqualToString:@"SKY_A01"])
+            {
+                [imageArray addObject:[UIImage imageNamed:@"sun.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A02"]){
+                [imageArray addObject:[UIImage imageNamed:@"cloud.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A03"] || [codeForImage isEqualToString:@"SKY_A04"] || [codeForImage isEqualToString:@"SKY_A05"] || [codeForImage isEqualToString:@"SKY_A06"]){
+                [imageArray addObject:[UIImage imageNamed:@"cloudy2.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A07"] || [codeForImage isEqualToString:@"SKY_A08"] || [codeForImage isEqualToString:@"SKY_A09"] || [codeForImage isEqualToString:@"SKY_A10"] || [codeForImage isEqualToString:@"SKY_A11"]){
+                [imageArray addObject:[UIImage imageNamed:@"cloudwithsun.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A12"] || [codeForImage isEqualToString:@"SKY_A14"]){
+                [imageArray addObject:[UIImage imageNamed:@"umbrella.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A13"]){
+                [imageArray addObject:[UIImage imageNamed:@"snowflake.png"]];
+            }else{
+                //do nothing.
+            }
+            
+            [subtextArray addObject:[NSString stringWithFormat:@"%@ %@℃ (%@℃ / %@℃)",tempName, temptc,temptmin, temptmax]];
+        } else {
+            if (error) NSLog(@"Error: %@", error);
+        }
+        
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+    }
+}
 
 @end

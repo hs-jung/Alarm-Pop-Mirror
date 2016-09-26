@@ -9,7 +9,9 @@
 #import "mainViewController.h"
 #import "editScheduleViewController.h"
 
-@interface mainViewController ()
+@interface mainViewController (){
+    NSInteger count;
+}
 
 @end
 
@@ -26,6 +28,8 @@ NSMutableArray *tcArray = nil;
 NSMutableArray *tminArray = nil;
 NSMutableArray *tmaxArray = nil;
 NSMutableArray *subtextArray = nil;
+NSMutableArray *imageArray = nil;
+Boolean weatherFlag = false;
 
 @implementation mainViewController
 
@@ -69,7 +73,6 @@ NSMutableArray *subtextArray = nil;
     memoField.delegate = self;
     
     //날씨 가져오기, 출력
-    
     codeArray = [[NSMutableArray alloc] init];
     locationArray = [[NSMutableArray alloc] init];
     skyCodeArray = [[NSMutableArray alloc] init];
@@ -78,32 +81,28 @@ NSMutableArray *subtextArray = nil;
     tminArray = [[NSMutableArray alloc] init];
     tmaxArray = [[NSMutableArray alloc] init];
     subtextArray = [[NSMutableArray alloc] init];
-        
-    [self loadLocation];
+    imageArray = [[NSMutableArray alloc] init];
     
-    NSLog(@"test weather Array Size ::: %d",(int)weatherArraySize);
-    [weatherField setText:[NSString stringWithFormat:@"count test ::: %d",(int)weatherArraySize]];
+    [self loadLocation];
     
     for(int i = 0; i< weatherArraySize; i++){
         [self loadWeather:codeArray[i]];
-        NSLog(@"testtesttest ::: %@", codeArray[i]);
-        NSLog(@"testtesttest ::: %@", locationArray[i]);
-        NSLog(@"testtesttest ::: %@", skyCodeArray[i]);
-        NSLog(@"testtesttest ::: %@", skyNameArray[i]);
-        NSLog(@"testtesttest ::: %@", tcArray[i]);
-        NSLog(@"testtesttest ::: %@", tminArray[i]);
-        NSLog(@"testtesttest ::: %@", tmaxArray[i]);
     }
     
-    for(int i=0; i<weatherArraySize; i++) {
-        NSLog(@"test code Array ::: %@",codeArray[i]);
-        subtextArray[i] = [NSString stringWithFormat:@"%@ %@℃(%@℃ / %@℃)",skyNameArray[i], tcArray[i],tminArray[i], tmaxArray[i]];
+    weatherIconView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    if(weatherFlag){
+        for(int i=0; i<weatherArraySize; i++) {
+            subtextArray[i] = [NSString stringWithFormat:@"%@ %@℃ (%@℃ / %@℃)",skyNameArray[i], tcArray[i],tminArray[i], tmaxArray[i]];
+        }
         
-        NSLog(@"testtesttest ::: %@", subtextArray[i]);
+        locationField.text = locationArray[0];
+        weatherInfoField.text = subtextArray[0];
+        weatherIconView.image = imageArray[0];
+    
+        count = 1;
+        timer2 = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(displayWeather) userInfo:nil repeats:YES];
     }
-    
-    
-    
     
     [super viewDidLoad];
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -593,9 +592,7 @@ NSMutableArray *subtextArray = nil;
                     contents = userWeatherContents[i];
                     [codeArray addObject:[contents objectForKey:@"stdid"]];
                     [locationArray addObject:[contents objectForKey:@"city"]];
-                    //NSLog(@"teset ::: %@,%@",_location[i],_code[i]);
                 }
-                //NSLog(@"Schedule Load SUCCESS");
             }else{
                 NSString *error_msg = (NSString *) jsonData[@"error_message"];
             }
@@ -660,6 +657,33 @@ NSMutableArray *subtextArray = nil;
             [tcArray addObject:[temperature objectForKey:@"tc"]];
             [tmaxArray addObject:[temperature objectForKey:@"tmax"]];
             [tminArray addObject:[temperature objectForKey:@"tmin"]];
+            NSString *codeForImage = [sky objectForKey:@"code"];
+            
+            if ([codeForImage isEqualToString:@"SKY_A01"])
+            {
+                
+                [imageArray addObject:[UIImage imageNamed:@"sun.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A02"]){
+                
+                [imageArray addObject:[UIImage imageNamed:@"cloud.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A03"] || [codeForImage isEqualToString:@"SKY_A04"] || [codeForImage isEqualToString:@"SKY_A05"] || [codeForImage isEqualToString:@"SKY_A06"]){
+                
+                [imageArray addObject:[UIImage imageNamed:@"cloudy2.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A07"] || [codeForImage isEqualToString:@"SKY_A08"] || [codeForImage isEqualToString:@"SKY_A09"] || [codeForImage isEqualToString:@"SKY_A10"] || [codeForImage isEqualToString:@"SKY_A11"]){
+                
+                [imageArray addObject:[UIImage imageNamed:@"cloudwithsun.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A12"] || [codeForImage isEqualToString:@"SKY_A14"]){
+                
+                [imageArray addObject:[UIImage imageNamed:@"umbrella.png"]];
+            }else if([codeForImage isEqualToString:@"SKY_A13"]){
+                
+                [imageArray addObject:[UIImage imageNamed:@"snowflake.png"]];
+            }else{
+                
+                [imageArray addObject:[UIImage imageNamed:@"sun.png"]];
+            }
+            
+            weatherFlag = true;
             
         } else {
             if (error) NSLog(@"Error: %@", error);
@@ -668,6 +692,26 @@ NSMutableArray *subtextArray = nil;
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
+    }
+}
+
+-(void)displayWeather{
+    if(weatherArraySize == 0){
+        //do nothing.
+    }else if(weatherArraySize == 1){
+        locationField.text = locationArray[0];
+        weatherInfoField.text = subtextArray[0];
+        weatherIconView.image = imageArray[0];
+    }else{
+        locationField.text = locationArray[count];
+        weatherInfoField.text = subtextArray[count];
+        weatherIconView.image = imageArray[count];
+        
+        if(count < weatherArraySize-1){
+            count ++;
+        }else{
+            count = 0;
+        }
     }
     
     

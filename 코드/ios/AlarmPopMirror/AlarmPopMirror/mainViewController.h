@@ -12,10 +12,12 @@
 @interface mainViewController : UIViewController<UITextViewDelegate,UITableViewDelegate, UITableViewDataSource>
 {
     NSTimer *timer;
+    NSTimer *timer2;
     IBOutlet UILabel *timeField;
     IBOutlet UILabel *dateField;
     IBOutlet UITextView *memoField;
-    IBOutlet UILabel *weatherField;
+    IBOutlet UILabel *locationField;
+    IBOutlet UILabel *weatherInfoField;IBOutlet UIImageView *weatherIconView;
     UITextView *textView;
     UITableView *tableView;
     UIDatePicker *datePicker;
@@ -47,4 +49,7 @@ extern NSMutableArray *tcArray;
 extern NSMutableArray *tminArray;
 extern NSMutableArray *tmaxArray;
 extern NSMutableArray *subtextArray;
+extern NSMutableArray *imageArray;
+extern Boolean weatherFlag;
+
 @end

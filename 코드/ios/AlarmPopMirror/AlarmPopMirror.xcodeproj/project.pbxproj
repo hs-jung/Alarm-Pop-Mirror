@@ -40,6 +40,8 @@
 		BE1D0F731D7B566F002CE053 /* weatherButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F6D1D7B566F002CE053 /* weatherButton.png */; };
 		BE1D0F791D7B5C5D002CE053 /* infoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F781D7B5C5D002CE053 /* infoImage.png */; };
 		BE413FDF1D704353002966DE /* changePWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE413FDE1D704353002966DE /* changePWViewController.m */; };
+		BE4B69161D945C6200D024D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1CF2C51CF357720068D2F2 /* Assets.xcassets */; };
+		BE4B69171D945C6300D024D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1CF2C51CF357720068D2F2 /* Assets.xcassets */; };
 		BE4FC4381D89BF5500287543 /* addLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4FC4371D89BF5500287543 /* addLocationViewController.m */; };
 		BE53477C1D7DD3AE00B87004 /* albumButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477A1D7DD3AE00B87004 /* albumButton.png */; };
 		BE53477D1D7DD3AE00B87004 /* cameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477B1D7DD3AE00B87004 /* cameraButton.png */; };
@@ -80,7 +82,7 @@
 		BE1892381D8B42AE00E3609F /* snowflake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowflake.png; sourceTree = "<group>"; };
 		BE1892391D8B42AE00E3609F /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		BE18923A1D8B42AE00E3609F /* umbrella.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = umbrella.png; sourceTree = "<group>"; };
-		BE1CF2B61CF357720068D2F2 /* AlarmPopMirror.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmPopMirror.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1CF2B61CF357720068D2F2 /* 알람팝미러.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "알람팝미러.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1CF2BA1CF357720068D2F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE1CF2BC1CF357720068D2F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE1CF2BD1CF357720068D2F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 		BE1CF2B71CF357720068D2F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE1CF2B61CF357720068D2F2 /* AlarmPopMirror.app */,
+				BE1CF2B61CF357720068D2F2 /* 알람팝미러.app */,
 				BE1CF2CF1CF357720068D2F2 /* AlarmPopMirrorTests.xctest */,
 				BE1CF2DA1CF357720068D2F2 /* AlarmPopMirrorUITests.xctest */,
 			);
@@ -314,7 +316,7 @@
 			);
 			name = AlarmPopMirror;
 			productName = AlarmPopMirror;
-			productReference = BE1CF2B61CF357720068D2F2 /* AlarmPopMirror.app */;
+			productReference = BE1CF2B61CF357720068D2F2 /* 알람팝미러.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BE1CF2CE1CF357720068D2F2 /* AlarmPopMirrorTests */ = {
@@ -438,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE4B69171D945C6300D024D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +448,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE4B69161D945C6200D024D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +615,8 @@
 		BE1CF2E41CF357730068D2F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = apmAppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AlarmPopMirror/Info.plist;
@@ -622,7 +627,7 @@
 					"$(PROJECT_DIR)/AlarmPopMirror/mysql_connector/lib/OSX",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sanha-song.AlarmPopMirror";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "알람팝미러";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -630,7 +635,8 @@
 		BE1CF2E51CF357730068D2F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = apmAppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AlarmPopMirror/Info.plist;
@@ -641,7 +647,7 @@
 					"$(PROJECT_DIR)/AlarmPopMirror/mysql_connector/lib/OSX",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sanha-song.AlarmPopMirror";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "알람팝미러";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

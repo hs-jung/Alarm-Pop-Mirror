@@ -11,9 +11,7 @@
 
 @interface joinViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate>
 {
-    UIImagePickerController *picker;
-    UIImagePickerController *picker2;
-    IBOutlet UIImageView *userPhoto;
+
 }
 
 - (IBAction)idCheckButton:(id)sender;
@@ -25,12 +23,21 @@
 - (IBAction)takePhoto;
 - (IBAction)choosePhoto;
 
+- (IBAction)addImageButton1:(id)sender;
+- (IBAction)addImageButton2:(id)sender;
+- (IBAction)addImageButton3:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UITextField *IDField;
 @property (weak, nonatomic) IBOutlet UITextField *nickNameField;
 @property (weak, nonatomic) IBOutlet UITextField *PWField;
 @property (weak, nonatomic) IBOutlet UITextField *PW2Field;
 
+@property (weak, nonatomic) IBOutlet UIButton *testButtonImage;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *addImageButton1;
+@property (weak, nonatomic) IBOutlet UIButton *addImageButton2;
+@property (weak, nonatomic) IBOutlet UIButton *addImageButton3;
 
 @property  NSInteger checked;   //ID 체크 확인
 

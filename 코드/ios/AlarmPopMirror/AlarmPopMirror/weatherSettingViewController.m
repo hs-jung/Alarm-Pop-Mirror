@@ -22,7 +22,7 @@
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [super viewDidLoad];
     tableView = [[UITableView alloc]init];
-    
+    [tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +42,7 @@
     tableView.backgroundColor = [UIColor clearColor];
     [tableView setRowHeight:90];
     [tableView setCellLayoutMarginsFollowReadableWidth:YES];
+    
     return [locationArray count];
 }
 
@@ -58,38 +59,12 @@
         cell.backgroundColor = [UIColor clearColor];
     }
     
-    /*
-    UIImage *weatherIcon = [[UIImage alloc]init];
-    if ([skyCodeArray[0] isEqualToString:@"SKY_A01"])
-    {
-        weatherIcon = [UIImage imageNamed:@"sun.png"];
-    }else if([skyCodeArray[0] isEqualToString:@"SKY_A02"]){
-        
-        weatherIcon = [UIImage imageNamed:@"cloud.png"];
-    }else if([skyCodeArray[0] isEqualToString:@"SKY_A03"] || [skyCodeArray[0] isEqualToString:@"SKY_A04"] || [skyCodeArray[0] isEqualToString:@"SKY_A05"] || [skyCodeArray[0] isEqualToString:@"SKY_A06"]){
-        
-        weatherIcon = [UIImage imageNamed:@"cloud2.png"];
-    }else if([skyCodeArray[0] isEqualToString:@"SKY_A07"] || [skyCodeArray[0] isEqualToString:@"SKY_A08"] || [skyCodeArray[0] isEqualToString:@"SKY_A09"] || [skyCodeArray[0] isEqualToString:@"SKY_A10"] || [skyCodeArray[0] isEqualToString:@"SKY_A11"]){
-        
-        weatherIcon = [UIImage imageNamed:@"cloudwithsun.png"];
-    }else if([skyCodeArray[0] isEqualToString:@"SKY_A12"] || [skyCodeArray[0] isEqualToString:@"SKY_A14"]){
-        
-        weatherIcon = [UIImage imageNamed:@"umbrella.png"];
-    }else if([skyCodeArray[0] isEqualToString:@"SKY_A13"]){
-        
-        weatherIcon = [UIImage imageNamed:@"snowflake.png"];
-    }else{
-        //do nothing.
+    if(weatherFlag){
+        cell.imageView.image = imageArray[indexPath.row];
+        cell.textLabel.text =  locationArray[indexPath.row];
+        cell.detailTextLabel.text = subtextArray[indexPath.row];
     }
-    
-    cell.imageView.image = weatherIcon;
-    */
-    
-    cell.textLabel.text =  locationArray[indexPath.row];
-    cell.detailTextLabel.text = subtextArray[indexPath.row];
-    
     cell.textLabel.font = [UIFont systemFontOfSize:18.0];
-    //[cell.textLabel.textAlignment right];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
     
     return cell;
@@ -109,7 +84,6 @@
     NSInteger arraySize = [locationArray count];
     [self deleteLocation:(int)deleteNum];
     
-    
     for(int i = (int)deleteNum ; i<arraySize-1 ; i++){
         locationArray[i] = locationArray[i+1];
         subtextArray[i] = subtextArray[i+1];
@@ -117,6 +91,11 @@
     
     [locationArray removeObjectAtIndex:arraySize-1];
     [subtextArray removeObjectAtIndex:arraySize-1];
+    weatherArraySize--;
+    
+    if(weatherArraySize == 0){
+        weatherFlag = false;
+    }
     
     [tableView reloadData];
 }

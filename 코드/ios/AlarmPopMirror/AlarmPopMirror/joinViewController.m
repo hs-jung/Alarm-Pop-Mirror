@@ -13,9 +13,9 @@
     NSInteger imageCount;
     NSInteger buttonID;
     
-    BOOL button1ImageAdded;
-    BOOL button2ImageAdded;
-    BOOL button3ImageAdded;
+    BOOL button1ImageEmpty;
+    BOOL button2ImageEmpty;
+    BOOL button3ImageEmpty;
     
     NSData *imageData1;
     NSData *imageData2;
@@ -35,9 +35,9 @@
     imageCount = 0;
     buttonID = 0;
     
-    button1ImageAdded = false;
-    button2ImageAdded = false;
-    button3ImageAdded = false;
+    button1ImageEmpty = true;
+    button2ImageEmpty = true;
+    button3ImageEmpty = true;
     
     imageData1 = [[NSData alloc] init];
     imageData2 = [[NSData alloc] init];
@@ -140,7 +140,7 @@
             [self alertStatus:@"ID 중복 확인을 해주세요." :@"join Failed!" :0];
         }else{
         
-            if([[self.IDField text] isEqualToString:@""] || [[self.nickNameField text] isEqualToString:@""] || [[self.PWField text] isEqualToString:@""] || [[self.PW2Field text] isEqualToString:@""] || button1ImageAdded || button2ImageAdded || button3ImageAdded)
+            if([[self.IDField text] isEqualToString:@""] || [[self.nickNameField text] isEqualToString:@""] || [[self.PWField text] isEqualToString:@""] || [[self.PW2Field text] isEqualToString:@""] || button1ImageEmpty || button2ImageEmpty || button3ImageEmpty)
             {
                 
                 [self alertStatus:@"빈칸을 채워주세요." :@"join Failed!" :0];
@@ -296,15 +296,15 @@
         imageData1 = UIImageJPEGRepresentation(selectedPhoto, 0.5);
         [_addImageButton1 setImage:selectedPhoto forState:UIControlStateNormal];
         NSLog(@"test added image");
-        button1ImageAdded = true;
+        button1ImageEmpty = false;
     }else if(buttonID == 2){
         imageData2 = UIImageJPEGRepresentation(selectedPhoto, 0.5);
         [_addImageButton2 setImage:selectedPhoto forState:UIControlStateNormal];
-        button2ImageAdded = true;
+        button2ImageEmpty = false;
     }else if(buttonID == 3){
         imageData3 = UIImageJPEGRepresentation(selectedPhoto, 0.5);
         [_addImageButton3 setImage:selectedPhoto forState:UIControlStateNormal];
-        button3ImageAdded = true;
+        button3ImageEmpty = false;
     }else{
         //do nothing.
     }
@@ -360,9 +360,19 @@
                                  
                              }];
     
+    UIAlertAction* cancle = [UIAlertAction
+                             actionWithTitle:@"취소"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [view dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
     
     [view addAction:camera];
     [view addAction:gallery];
+    [view addAction:cancle];
     [self presentViewController:view animated:YES completion:nil];
 }
 

@@ -13,6 +13,8 @@
     NSInteger imageCount;
     NSInteger buttonID;
     
+    NSString *nickName;
+    
     BOOL buttonImagechanged;
     
     UIImage *userImage1;
@@ -35,16 +37,16 @@
 
     _userID.text=[NSString stringWithFormat:@"%@",uuid];
     
-    //image 가져오기
-    [self bringInfo];
-    
     buttonID = 0;
-    
     buttonImagechanged = false;
-
+    nickName = [[NSString alloc] init];
     imageData1 = [[NSData alloc] init];
     imageData2 = [[NSData alloc] init];
     imageData3 = [[NSData alloc] init];
+    
+    //image 가져오기
+    [self bringInfo];
+
     
 }
 
@@ -91,6 +93,92 @@
     //[_addImageButton2 setImage:userImage2 forState:UIControlStateNormal];
     //[_addImageButton3 setImage:userImage3 forState:UIControlStateNormal];
     
+    NSInteger success;
+    
+    @try {
+        NSString *post =[[NSString alloc] initWithFormat:@"id=%@",uuid];
+        NSLog(@"PostData: %@",post);
+        
+        NSURL *url=[NSURL URLWithString:@"http://cslab2.kku.ac.kr/~200917307/memo.php"];
+        
+        NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSLog(@"Response code: %ld", (long)[response statusCode]);
+        
+        if ([response statusCode] >= 200 && [response statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSLog(@"Response ==> %@", responseData);
+            
+            NSError *error = nil;
+            NSDictionary *jsonData = [NSJSONSerialization
+                                      JSONObjectWithData:urlData
+                                      options:NSJSONReadingMutableContainers
+                                      error:&error];
+            
+            success = [jsonData[@"Success"] integerValue];
+            NSLog(@"Success: %ld",success);
+            
+            if(success == 0)
+            {
+                nickName = [jsonData objectForKey:@"nickName"];
+                userImage1 = [jsonData objectForKey:@"img1"];
+                userImage1 = [jsonData objectForKey:@"img2"];
+                userImage1 = [jsonData objectForKey:@"img3"];
+                
+                NSString *imgAddress1 = [jsonData objectForKey:@"img1"];
+                imgAddress1 = [imgAddress1 stringByReplacingOccurrencesOfString:@"//"
+                                                                   withString:@"/"];
+                NSString *imgAddress2 = [jsonData objectForKey:@"img2"];
+                imgAddress2 = [imgAddress2 stringByReplacingOccurrencesOfString:@"//"
+                                                                   withString:@"/"];
+                NSString *imgAddress3 = [jsonData objectForKey:@"img3"];
+                imgAddress3 = [imgAddress3 stringByReplacingOccurrencesOfString:@"//"
+                                                                   withString:@"/"];
+                
+                NSURL *url1 = [NSURL URLWithString:imgAddress1];
+                NSURL *url2 = [NSURL URLWithString:imgAddress2];
+                NSURL *url3 = [NSURL URLWithString:imgAddress3];
+                
+                userImage1 = [NSData dataWithContentsOfURL:url1];
+                userImage2 = [NSData dataWithContentsOfURL:url2];
+                userImage3 = [NSData dataWithContentsOfURL:url3];
+                
+                _nickName.text = nickName;
+                
+                [_addImageButton1 setImage:userImage1 forState:UIControlStateNormal];
+                [_addImageButton2 setImage:userImage2 forState:UIControlStateNormal];
+                [_addImageButton3 setImage:userImage3 forState:UIControlStateNormal];
+                
+                
+            } else {
+                NSString *error_msg = (NSString *) jsonData[@"error_message"];
+            }
+            
+        } else {
+            if (error) NSLog(@"Error: %@", error);
+        }
+        
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+    }
+
+    
 }
 
 -(void) alertTwotype{
@@ -118,9 +206,19 @@
                                   
                               }];
     
+    UIAlertAction* cancle = [UIAlertAction
+                              actionWithTitle:@"취소"
+                              style:UIAlertActionStyleDefault
+                              handler:^(UIAlertAction * action)
+                              {
+                                  [view dismissViewControllerAnimated:YES completion:nil];
+                                  
+                              }];
+    
     
     [view addAction:camera];
     [view addAction:gallery];
+    [view addAction:cancle];
     [self presentViewController:view animated:YES completion:nil];
 }
 

@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE18923B1D8B42AE00E3609F /* cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1892351D8B42AE00E3609F /* cloud.png */; };
+		BE18923C1D8B42AE00E3609F /* cloudy2.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1892361D8B42AE00E3609F /* cloudy2.png */; };
+		BE18923D1D8B42AE00E3609F /* cloudwithsun.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1892371D8B42AE00E3609F /* cloudwithsun.png */; };
+		BE18923E1D8B42AE00E3609F /* snowflake.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1892381D8B42AE00E3609F /* snowflake.png */; };
+		BE18923F1D8B42AE00E3609F /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1892391D8B42AE00E3609F /* sun.png */; };
+		BE1892401D8B42AE00E3609F /* umbrella.png in Resources */ = {isa = PBXBuildFile; fileRef = BE18923A1D8B42AE00E3609F /* umbrella.png */; };
+		BE1CF2BB1CF357720068D2F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1CF2BA1CF357720068D2F2 /* main.m */; };
+		BE1CF2BE1CF357720068D2F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1CF2BD1CF357720068D2F2 /* AppDelegate.m */; };
+		BE1CF2C11CF357720068D2F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1CF2C01CF357720068D2F2 /* ViewController.m */; };
+		BE1CF2C41CF357720068D2F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1CF2C21CF357720068D2F2 /* Main.storyboard */; };
+		BE1CF2C61CF357720068D2F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1CF2C51CF357720068D2F2 /* Assets.xcassets */; };
+		BE1CF2C91CF357720068D2F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1CF2C71CF357720068D2F2 /* LaunchScreen.storyboard */; };
+		BE1CF2D41CF357720068D2F2 /* AlarmPopMirrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1CF2D31CF357720068D2F2 /* AlarmPopMirrorTests.m */; };
+		BE1CF2DF1CF357720068D2F2 /* AlarmPopMirrorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1CF2DE1CF357720068D2F2 /* AlarmPopMirrorUITests.m */; };
+		BE1D0F281D7B3323002CE053 /* backgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F1B1D7B3323002CE053 /* backgroundImage.png */; };
+		BE1D0F2B1D7B3323002CE053 /* checkButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F1E1D7B3323002CE053 /* checkButton.png */; };
+		BE1D0F321D7B3323002CE053 /* settingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F251D7B3323002CE053 /* settingButton.png */; };
+		BE1D0F351D7B3DA3002CE053 /* backButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F341D7B3DA3002CE053 /* backButton2.png */; };
+		BE1D0F451D7B4612002CE053 /* addImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F441D7B4612002CE053 /* addImage.png */; };
+		BE1D0F611D7B5011002CE053 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F601D7B5011002CE053 /* logo.png */; };
+		BE1D0F631D7B50F3002CE053 /* backButton1.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F621D7B50F3002CE053 /* backButton1.png */; };
+		BE1D0F6E1D7B566F002CE053 /* infoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F681D7B566F002CE053 /* infoButton.png */; };
+		BE1D0F701D7B566F002CE053 /* introImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F6A1D7B566F002CE053 /* introImage.png */; };
+		BE1D0F711D7B566F002CE053 /* newsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F6B1D7B566F002CE053 /* newsButton.png */; };
+		BE1D0F721D7B566F002CE053 /* userInfoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F6C1D7B566F002CE053 /* userInfoButton.png */; };
+		BE1D0F731D7B566F002CE053 /* weatherButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F6D1D7B566F002CE053 /* weatherButton.png */; };
+		BE1D0F791D7B5C5D002CE053 /* infoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D0F781D7B5C5D002CE053 /* infoImage.png */; };
+		BE413FDF1D704353002966DE /* changePWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE413FDE1D704353002966DE /* changePWViewController.m */; };
+		BE4B69161D945C6200D024D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1CF2C51CF357720068D2F2 /* Assets.xcassets */; };
+		BE4B69171D945C6300D024D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1CF2C51CF357720068D2F2 /* Assets.xcassets */; };
+		BE4FC4381D89BF5500287543 /* addLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4FC4371D89BF5500287543 /* addLocationViewController.m */; };
+		BE53477C1D7DD3AE00B87004 /* albumButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477A1D7DD3AE00B87004 /* albumButton.png */; };
+		BE53477F1D7DDFE200B87004 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = BE53477E1D7DDFE200B87004 /* plus.png */; };
+		BE652A1D1D86CF1C00DD9BC8 /* addScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE652A1C1D86CF1C00DD9BC8 /* addScheduleViewController.m */; };
+		BE652A231D89212B00DD9BC8 /* editScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE652A221D89212B00DD9BC8 /* editScheduleViewController.m */; };
+		BE855AFA1D68C48100E621A5 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855AF91D68C48100E621A5 /* infoViewController.m */; };
+		BE855AFD1D68C80800E621A5 /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855AFC1D68C80800E621A5 /* settingViewController.m */; };
+		BE855B001D68CA0400E621A5 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855AFF1D68CA0400E621A5 /* loginViewController.m */; };
+		BE855B031D6AE0B400E621A5 /* joinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855B021D6AE0B400E621A5 /* joinViewController.m */; };
+		BE855B061D6B50F100E621A5 /* weatherSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855B051D6B50F100E621A5 /* weatherSettingViewController.m */; };
+		BE855B0C1D6B518F00E621A5 /* userSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855B0B1D6B518F00E621A5 /* userSettingViewController.m */; };
+		BE87CB7A1D9ACD040013D3F1 /* logoutButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE87CB721D9ACD040013D3F1 /* logoutButton.png */; };
+		BE87CB831D9AD13B0013D3F1 /* cancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE87CB7E1D9AD13B0013D3F1 /* cancelButton.png */; };
+		BE87CB841D9AD13B0013D3F1 /* changeButton1.png in Resources */ = {isa = PBXBuildFile; fileRef = BE87CB7F1D9AD13B0013D3F1 /* changeButton1.png */; };
+		BE87CB851D9AD13B0013D3F1 /* changeButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = BE87CB801D9AD13B0013D3F1 /* changeButton2.png */; };
+		BE87CB861D9AD13B0013D3F1 /* joinButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE87CB811D9AD13B0013D3F1 /* joinButton.png */; };
+		BE87CB871D9AD13B0013D3F1 /* loginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE87CB821D9AD13B0013D3F1 /* loginButton.png */; };
+		BE87CB891D9AD1D10013D3F1 /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE87CB881D9AD1D10013D3F1 /* deleteButton.png */; };
+		BE9162871D67595B00AADE20 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9162861D67595B00AADE20 /* mainViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE1CF2D01CF357720068D2F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE1CF2AE1CF357720068D2F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE1CF2B51CF357720068D2F2;
+			remoteInfo = AlarmPopMirror;
+		};
+		BE1CF2DB1CF357720068D2F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE1CF2AE1CF357720068D2F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE1CF2B51CF357720068D2F2;
+			remoteInfo = AlarmPopMirror;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE1892351D8B42AE00E3609F /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.png; sourceTree = "<group>"; };
+		BE1892361D8B42AE00E3609F /* cloudy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudy2.png; sourceTree = "<group>"; };
+		BE1892371D8B42AE00E3609F /* cloudwithsun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudwithsun.png; sourceTree = "<group>"; };
+		BE1892381D8B42AE00E3609F /* snowflake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snowflake.png; sourceTree = "<group>"; };
+		BE1892391D8B42AE00E3609F /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
+		BE18923A1D8B42AE00E3609F /* umbrella.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = umbrella.png; sourceTree = "<group>"; };
+		BE1CF2B61CF357720068D2F2 /* 알람팝미러.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "알람팝미러.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1CF2BA1CF357720068D2F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE1CF2BC1CF357720068D2F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BE1CF2BD1CF357720068D2F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BE1CF2BF1CF357720068D2F2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BE1CF2C01CF357720068D2F2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BE1CF2C31CF357720068D2F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE1CF2C51CF357720068D2F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE1CF2C81CF357720068D2F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE1CF2CA1CF357720068D2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE1CF2CF1CF357720068D2F2 /* AlarmPopMirrorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmPopMirrorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1CF2D31CF357720068D2F2 /* AlarmPopMirrorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmPopMirrorTests.m; sourceTree = "<group>"; };
+		BE1CF2D51CF357720068D2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE1CF2DA1CF357720068D2F2 /* AlarmPopMirrorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmPopMirrorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1CF2DE1CF357720068D2F2 /* AlarmPopMirrorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmPopMirrorUITests.m; sourceTree = "<group>"; };
+		BE1CF2E01CF357720068D2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE1D0F1B1D7B3323002CE053 /* backgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundImage.png; sourceTree = "<group>"; };
+		BE1D0F1E1D7B3323002CE053 /* checkButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkButton.png; sourceTree = "<group>"; };
+		BE1D0F251D7B3323002CE053 /* settingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingButton.png; sourceTree = "<group>"; };
+		BE1D0F341D7B3DA3002CE053 /* backButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton2.png; sourceTree = "<group>"; };
+		BE1D0F441D7B4612002CE053 /* addImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addImage.png; sourceTree = "<group>"; };
+		BE1D0F601D7B5011002CE053 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		BE1D0F621D7B50F3002CE053 /* backButton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton1.png; sourceTree = "<group>"; };
+		BE1D0F681D7B566F002CE053 /* infoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoButton.png; sourceTree = "<group>"; };
+		BE1D0F6A1D7B566F002CE053 /* introImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = introImage.png; sourceTree = "<group>"; };
+		BE1D0F6B1D7B566F002CE053 /* newsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newsButton.png; sourceTree = "<group>"; };
+		BE1D0F6C1D7B566F002CE053 /* userInfoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userInfoButton.png; sourceTree = "<group>"; };
+		BE1D0F6D1D7B566F002CE053 /* weatherButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weatherButton.png; sourceTree = "<group>"; };
+		BE1D0F781D7B5C5D002CE053 /* infoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoImage.png; sourceTree = "<group>"; };
+		BE413FDD1D704353002966DE /* changePWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changePWViewController.h; sourceTree = "<group>"; };
+		BE413FDE1D704353002966DE /* changePWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changePWViewController.m; sourceTree = "<group>"; };
+		BE4FC4361D89BF5500287543 /* addLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addLocationViewController.h; sourceTree = "<group>"; };
+		BE4FC4371D89BF5500287543 /* addLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addLocationViewController.m; sourceTree = "<group>"; };
+		BE53477A1D7DD3AE00B87004 /* albumButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = albumButton.png; sourceTree = "<group>"; };
+		BE53477E1D7DDFE200B87004 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		BE652A1B1D86CF1C00DD9BC8 /* addScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addScheduleViewController.h; sourceTree = "<group>"; };
+		BE652A1C1D86CF1C00DD9BC8 /* addScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addScheduleViewController.m; sourceTree = "<group>"; };
+		BE652A211D89212B00DD9BC8 /* editScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editScheduleViewController.h; sourceTree = "<group>"; };
+		BE652A221D89212B00DD9BC8 /* editScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editScheduleViewController.m; sourceTree = "<group>"; };
+		BE855AF81D68C48100E621A5 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
+		BE855AF91D68C48100E621A5 /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
+		BE855AFB1D68C80800E621A5 /* settingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingViewController.h; sourceTree = "<group>"; };
+		BE855AFC1D68C80800E621A5 /* settingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingViewController.m; sourceTree = "<group>"; };
+		BE855AFE1D68CA0400E621A5 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
+		BE855AFF1D68CA0400E621A5 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		BE855B011D6AE0B400E621A5 /* joinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joinViewController.h; sourceTree = "<group>"; };
+		BE855B021D6AE0B400E621A5 /* joinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = joinViewController.m; sourceTree = "<group>"; };
+		BE855B041D6B50F100E621A5 /* weatherSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weatherSettingViewController.h; sourceTree = "<group>"; };
+		BE855B051D6B50F100E621A5 /* weatherSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weatherSettingViewController.m; sourceTree = "<group>"; };
+		BE855B0A1D6B518F00E621A5 /* userSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSettingViewController.h; sourceTree = "<group>"; };
+		BE855B0B1D6B518F00E621A5 /* userSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSettingViewController.m; sourceTree = "<group>"; };
+		BE87CB721D9ACD040013D3F1 /* logoutButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutButton.png; sourceTree = "<group>"; };
+		BE87CB7E1D9AD13B0013D3F1 /* cancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelButton.png; sourceTree = "<group>"; };
+		BE87CB7F1D9AD13B0013D3F1 /* changeButton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeButton1.png; sourceTree = "<group>"; };
+		BE87CB801D9AD13B0013D3F1 /* changeButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeButton2.png; sourceTree = "<group>"; };
+		BE87CB811D9AD13B0013D3F1 /* joinButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joinButton.png; sourceTree = "<group>"; };
+		BE87CB821D9AD13B0013D3F1 /* loginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginButton.png; sourceTree = "<group>"; };
+		BE87CB881D9AD1D10013D3F1 /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteButton.png; sourceTree = "<group>"; };
+		BE9162851D67595B00AADE20 /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
+		BE9162861D67595B00AADE20 /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE1CF2B31CF357720068D2F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE1CF2CC1CF357720068D2F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE1CF2D71CF357720068D2F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE1892341D8B429400E3609F /* weatherIcon */ = {
+			isa = PBXGroup;
+			children = (
+				BE1892351D8B42AE00E3609F /* cloud.png */,
+				BE1892361D8B42AE00E3609F /* cloudy2.png */,
+				BE1892371D8B42AE00E3609F /* cloudwithsun.png */,
+				BE1892381D8B42AE00E3609F /* snowflake.png */,
+				BE1892391D8B42AE00E3609F /* sun.png */,
+				BE18923A1D8B42AE00E3609F /* umbrella.png */,
+			);
+			name = weatherIcon;
+			sourceTree = "<group>";
+		};
+		BE1CF2AD1CF357720068D2F2 = {
+			isa = PBXGroup;
+			children = (
+				BE1892341D8B429400E3609F /* weatherIcon */,
+				BE1D0F191D7B3315002CE053 /* sourceImage */,
+				BE1CF2B81CF357720068D2F2 /* AlarmPopMirror */,
+				BE1CF2D21CF357720068D2F2 /* AlarmPopMirrorTests */,
+				BE1CF2DD1CF357720068D2F2 /* AlarmPopMirrorUITests */,
+				BE1CF2B71CF357720068D2F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE1CF2B71CF357720068D2F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE1CF2B61CF357720068D2F2 /* 알람팝미러.app */,
+				BE1CF2CF1CF357720068D2F2 /* AlarmPopMirrorTests.xctest */,
+				BE1CF2DA1CF357720068D2F2 /* AlarmPopMirrorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE1CF2B81CF357720068D2F2 /* AlarmPopMirror */ = {
+			isa = PBXGroup;
+			children = (
+				BE1CF2BC1CF357720068D2F2 /* AppDelegate.h */,
+				BE1CF2BD1CF357720068D2F2 /* AppDelegate.m */,
+				BE1CF2BF1CF357720068D2F2 /* ViewController.h */,
+				BE1CF2C01CF357720068D2F2 /* ViewController.m */,
+				BE1CF2C21CF357720068D2F2 /* Main.storyboard */,
+				BE4FC4361D89BF5500287543 /* addLocationViewController.h */,
+				BE4FC4371D89BF5500287543 /* addLocationViewController.m */,
+				BE652A211D89212B00DD9BC8 /* editScheduleViewController.h */,
+				BE652A221D89212B00DD9BC8 /* editScheduleViewController.m */,
+				BE652A1B1D86CF1C00DD9BC8 /* addScheduleViewController.h */,
+				BE652A1C1D86CF1C00DD9BC8 /* addScheduleViewController.m */,
+				BE413FDD1D704353002966DE /* changePWViewController.h */,
+				BE413FDE1D704353002966DE /* changePWViewController.m */,
+				BE855B0A1D6B518F00E621A5 /* userSettingViewController.h */,
+				BE855B0B1D6B518F00E621A5 /* userSettingViewController.m */,
+				BE855B041D6B50F100E621A5 /* weatherSettingViewController.h */,
+				BE855B051D6B50F100E621A5 /* weatherSettingViewController.m */,
+				BE855B011D6AE0B400E621A5 /* joinViewController.h */,
+				BE855B021D6AE0B400E621A5 /* joinViewController.m */,
+				BE855AFE1D68CA0400E621A5 /* loginViewController.h */,
+				BE855AFF1D68CA0400E621A5 /* loginViewController.m */,
+				BE855AFB1D68C80800E621A5 /* settingViewController.h */,
+				BE855AFC1D68C80800E621A5 /* settingViewController.m */,
+				BE855AF81D68C48100E621A5 /* infoViewController.h */,
+				BE855AF91D68C48100E621A5 /* infoViewController.m */,
+				BE9162851D67595B00AADE20 /* mainViewController.h */,
+				BE9162861D67595B00AADE20 /* mainViewController.m */,
+				BE1CF2C51CF357720068D2F2 /* Assets.xcassets */,
+				BE1CF2C71CF357720068D2F2 /* LaunchScreen.storyboard */,
+				BE1CF2CA1CF357720068D2F2 /* Info.plist */,
+				BE1CF2B91CF357720068D2F2 /* Supporting Files */,
+			);
+			path = AlarmPopMirror;
+			sourceTree = "<group>";
+		};
+		BE1CF2B91CF357720068D2F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE1CF2BA1CF357720068D2F2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE1CF2D21CF357720068D2F2 /* AlarmPopMirrorTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE1CF2D31CF357720068D2F2 /* AlarmPopMirrorTests.m */,
+				BE1CF2D51CF357720068D2F2 /* Info.plist */,
+			);
+			path = AlarmPopMirrorTests;
+			sourceTree = "<group>";
+		};
+		BE1CF2DD1CF357720068D2F2 /* AlarmPopMirrorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE1CF2DE1CF357720068D2F2 /* AlarmPopMirrorUITests.m */,
+				BE1CF2E01CF357720068D2F2 /* Info.plist */,
+			);
+			path = AlarmPopMirrorUITests;
+			sourceTree = "<group>";
+		};
+		BE1D0F191D7B3315002CE053 /* sourceImage */ = {
+			isa = PBXGroup;
+			children = (
+				BE87CB7E1D9AD13B0013D3F1 /* cancelButton.png */,
+				BE87CB7F1D9AD13B0013D3F1 /* changeButton1.png */,
+				BE87CB801D9AD13B0013D3F1 /* changeButton2.png */,
+				BE87CB811D9AD13B0013D3F1 /* joinButton.png */,
+				BE87CB821D9AD13B0013D3F1 /* loginButton.png */,
+				BE87CB721D9ACD040013D3F1 /* logoutButton.png */,
+				BE87CB881D9AD1D10013D3F1 /* deleteButton.png */,
+				BE53477A1D7DD3AE00B87004 /* albumButton.png */,
+				BE1D0F441D7B4612002CE053 /* addImage.png */,
+				BE1D0F621D7B50F3002CE053 /* backButton1.png */,
+				BE1D0F341D7B3DA3002CE053 /* backButton2.png */,
+				BE1D0F1B1D7B3323002CE053 /* backgroundImage.png */,
+				BE1D0F1E1D7B3323002CE053 /* checkButton.png */,
+				BE1D0F681D7B566F002CE053 /* infoButton.png */,
+				BE1D0F781D7B5C5D002CE053 /* infoImage.png */,
+				BE1D0F6A1D7B566F002CE053 /* introImage.png */,
+				BE1D0F601D7B5011002CE053 /* logo.png */,
+				BE1D0F6B1D7B566F002CE053 /* newsButton.png */,
+				BE53477E1D7DDFE200B87004 /* plus.png */,
+				BE1D0F251D7B3323002CE053 /* settingButton.png */,
+				BE1D0F6C1D7B566F002CE053 /* userInfoButton.png */,
+				BE1D0F6D1D7B566F002CE053 /* weatherButton.png */,
+			);
+			name = sourceImage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE1CF2B51CF357720068D2F2 /* AlarmPopMirror */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE1CF2E31CF357730068D2F2 /* Build configuration list for PBXNativeTarget "AlarmPopMirror" */;
+			buildPhases = (
+				BE1CF2B21CF357720068D2F2 /* Sources */,
+				BE1CF2B31CF357720068D2F2 /* Frameworks */,
+				BE1CF2B41CF357720068D2F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlarmPopMirror;
+			productName = AlarmPopMirror;
+			productReference = BE1CF2B61CF357720068D2F2 /* 알람팝미러.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE1CF2CE1CF357720068D2F2 /* AlarmPopMirrorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE1CF2E61CF357730068D2F2 /* Build configuration list for PBXNativeTarget "AlarmPopMirrorTests" */;
+			buildPhases = (
+				BE1CF2CB1CF357720068D2F2 /* Sources */,
+				BE1CF2CC1CF357720068D2F2 /* Frameworks */,
+				BE1CF2CD1CF357720068D2F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE1CF2D11CF357720068D2F2 /* PBXTargetDependency */,
+			);
+			name = AlarmPopMirrorTests;
+			productName = AlarmPopMirrorTests;
+			productReference = BE1CF2CF1CF357720068D2F2 /* AlarmPopMirrorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE1CF2D91CF357720068D2F2 /* AlarmPopMirrorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE1CF2E91CF357730068D2F2 /* Build configuration list for PBXNativeTarget "AlarmPopMirrorUITests" */;
+			buildPhases = (
+				BE1CF2D61CF357720068D2F2 /* Sources */,
+				BE1CF2D71CF357720068D2F2 /* Frameworks */,
+				BE1CF2D81CF357720068D2F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE1CF2DC1CF357720068D2F2 /* PBXTargetDependency */,
+			);
+			name = AlarmPopMirrorUITests;
+			productName = AlarmPopMirrorUITests;
+			productReference = BE1CF2DA1CF357720068D2F2 /* AlarmPopMirrorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE1CF2AE1CF357720068D2F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "송산하";
+				TargetAttributes = {
+					BE1CF2B51CF357720068D2F2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = L65DD5Q3E2;
+					};
+					BE1CF2CE1CF357720068D2F2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = BE1CF2B51CF357720068D2F2;
+					};
+					BE1CF2D91CF357720068D2F2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = BE1CF2B51CF357720068D2F2;
+					};
+				};
+			};
+			buildConfigurationList = BE1CF2B11CF357720068D2F2 /* Build configuration list for PBXProject "AlarmPopMirror" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE1CF2AD1CF357720068D2F2;
+			productRefGroup = BE1CF2B71CF357720068D2F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE1CF2B51CF357720068D2F2 /* AlarmPopMirror */,
+				BE1CF2CE1CF357720068D2F2 /* AlarmPopMirrorTests */,
+				BE1CF2D91CF357720068D2F2 /* AlarmPopMirrorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE1CF2B41CF357720068D2F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE87CB851D9AD13B0013D3F1 /* changeButton2.png in Resources */,
+				BE1CF2C91CF357720068D2F2 /* LaunchScreen.storyboard in Resources */,
+				BE18923D1D8B42AE00E3609F /* cloudwithsun.png in Resources */,
+				BE1D0F281D7B3323002CE053 /* backgroundImage.png in Resources */,
+				BE1D0F701D7B566F002CE053 /* introImage.png in Resources */,
+				BE1D0F351D7B3DA3002CE053 /* backButton2.png in Resources */,
+				BE1D0F731D7B566F002CE053 /* weatherButton.png in Resources */,
+				BE87CB861D9AD13B0013D3F1 /* joinButton.png in Resources */,
+				BE1D0F321D7B3323002CE053 /* settingButton.png in Resources */,
+				BE18923F1D8B42AE00E3609F /* sun.png in Resources */,
+				BE1CF2C61CF357720068D2F2 /* Assets.xcassets in Resources */,
+				BE1D0F6E1D7B566F002CE053 /* infoButton.png in Resources */,
+				BE18923B1D8B42AE00E3609F /* cloud.png in Resources */,
+				BE1D0F2B1D7B3323002CE053 /* checkButton.png in Resources */,
+				BE1CF2C41CF357720068D2F2 /* Main.storyboard in Resources */,
+				BE87CB891D9AD1D10013D3F1 /* deleteButton.png in Resources */,
+				BE53477C1D7DD3AE00B87004 /* albumButton.png in Resources */,
+				BE87CB841D9AD13B0013D3F1 /* changeButton1.png in Resources */,
+				BE1D0F631D7B50F3002CE053 /* backButton1.png in Resources */,
+				BE87CB831D9AD13B0013D3F1 /* cancelButton.png in Resources */,
+				BE18923C1D8B42AE00E3609F /* cloudy2.png in Resources */,
+				BE1D0F611D7B5011002CE053 /* logo.png in Resources */,
+				BE87CB871D9AD13B0013D3F1 /* loginButton.png in Resources */,
+				BE1892401D8B42AE00E3609F /* umbrella.png in Resources */,
+				BE1D0F721D7B566F002CE053 /* userInfoButton.png in Resources */,
+				BE87CB7A1D9ACD040013D3F1 /* logoutButton.png in Resources */,
+				BE1D0F711D7B566F002CE053 /* newsButton.png in Resources */,
+				BE18923E1D8B42AE00E3609F /* snowflake.png in Resources */,
+				BE1D0F451D7B4612002CE053 /* addImage.png in Resources */,
+				BE1D0F791D7B5C5D002CE053 /* infoImage.png in Resources */,
+				BE53477F1D7DDFE200B87004 /* plus.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE1CF2CD1CF357720068D2F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE4B69171D945C6300D024D9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE1CF2D81CF357720068D2F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE4B69161D945C6200D024D9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE1CF2B21CF357720068D2F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE652A1D1D86CF1C00DD9BC8 /* addScheduleViewController.m in Sources */,
+				BE1CF2C11CF357720068D2F2 /* ViewController.m in Sources */,
+				BE855AFD1D68C80800E621A5 /* settingViewController.m in Sources */,
+				BE855B0C1D6B518F00E621A5 /* userSettingViewController.m in Sources */,
+				BE1CF2BE1CF357720068D2F2 /* AppDelegate.m in Sources */,
+				BE652A231D89212B00DD9BC8 /* editScheduleViewController.m in Sources */,
+				BE855B001D68CA0400E621A5 /* loginViewController.m in Sources */,
+				BE855B061D6B50F100E621A5 /* weatherSettingViewController.m in Sources */,
+				BE1CF2BB1CF357720068D2F2 /* main.m in Sources */,
+				BE855AFA1D68C48100E621A5 /* infoViewController.m in Sources */,
+				BE855B031D6AE0B400E621A5 /* joinViewController.m in Sources */,
+				BE4FC4381D89BF5500287543 /* addLocationViewController.m in Sources */,
+				BE9162871D67595B00AADE20 /* mainViewController.m in Sources */,
+				BE413FDF1D704353002966DE /* changePWViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE1CF2CB1CF357720068D2F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE1CF2D41CF357720068D2F2 /* AlarmPopMirrorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE1CF2D61CF357720068D2F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE1CF2DF1CF357720068D2F2 /* AlarmPopMirrorUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE1CF2D11CF357720068D2F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE1CF2B51CF357720068D2F2 /* AlarmPopMirror */;
+			targetProxy = BE1CF2D01CF357720068D2F2 /* PBXContainerItemProxy */;
+		};
+		BE1CF2DC1CF357720068D2F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE1CF2B51CF357720068D2F2 /* AlarmPopMirror */;
+			targetProxy = BE1CF2DB1CF357720068D2F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE1CF2C21CF357720068D2F2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE1CF2C31CF357720068D2F2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE1CF2C71CF357720068D2F2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE1CF2C81CF357720068D2F2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE1CF2E11CF357730068D2F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE1CF2E21CF357730068D2F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE1CF2E41CF357730068D2F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = apmAppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AlarmPopMirror/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AlarmPopMirror/mysql_connector/lib/iOS",
+					"$(PROJECT_DIR)/AlarmPopMirror/mysql_connector/lib/OSX",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sanha-song.AlarmPopMirror";
+				PRODUCT_NAME = "알람팝미러";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		BE1CF2E51CF357730068D2F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = apmAppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AlarmPopMirror/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AlarmPopMirror/mysql_connector/lib/iOS",
+					"$(PROJECT_DIR)/AlarmPopMirror/mysql_connector/lib/OSX",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sanha-song.AlarmPopMirror";
+				PRODUCT_NAME = "알람팝미러";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		BE1CF2E71CF357730068D2F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AlarmPopMirrorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sanha-song.AlarmPopMirrorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlarmPopMirror.app/AlarmPopMirror";
+			};
+			name = Debug;
+		};
+		BE1CF2E81CF357730068D2F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AlarmPopMirrorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sanha-song.AlarmPopMirrorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlarmPopMirror.app/AlarmPopMirror";
+			};
+			name = Release;
+		};
+		BE1CF2EA1CF357730068D2F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AlarmPopMirrorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sanha-song.AlarmPopMirrorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AlarmPopMirror;
+			};
+			name = Debug;
+		};
+		BE1CF2EB1CF357730068D2F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AlarmPopMirrorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sanha-song.AlarmPopMirrorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AlarmPopMirror;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE1CF2B11CF357720068D2F2 /* Build configuration list for PBXProject "AlarmPopMirror" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE1CF2E11CF357730068D2F2 /* Debug */,
+				BE1CF2E21CF357730068D2F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE1CF2E31CF357730068D2F2 /* Build configuration list for PBXNativeTarget "AlarmPopMirror" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE1CF2E41CF357730068D2F2 /* Debug */,
+				BE1CF2E51CF357730068D2F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE1CF2E61CF357730068D2F2 /* Build configuration list for PBXNativeTarget "AlarmPopMirrorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE1CF2E71CF357730068D2F2 /* Debug */,
+				BE1CF2E81CF357730068D2F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE1CF2E91CF357730068D2F2 /* Build configuration list for PBXNativeTarget "AlarmPopMirrorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE1CF2EA1CF357730068D2F2 /* Debug */,
+				BE1CF2EB1CF357730068D2F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE1CF2AE1CF357720068D2F2 /* Project object */;
+}

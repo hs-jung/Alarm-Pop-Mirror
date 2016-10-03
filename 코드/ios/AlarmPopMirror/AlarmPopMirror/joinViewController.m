@@ -272,30 +272,9 @@
     
     UIImage *selectedPhoto = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    /*
-    if(imageCount == 0){
-        userPhoto1.image = selectedPhoto;
-        imageData1 = UIImageJPEGRepresentation(selectedPhoto, 0.5);
-        
-        [_testButtonImage setImage:selectedPhoto forState:UIControlStateNormal];
-        imageCount++;
-    }else if(imageCount == 1){
-        userPhoto2.image = selectedPhoto;
-        imageData2 = UIImageJPEGRepresentation(selectedPhoto, 0.5);
-        imageCount++;
-    }else if(imageCount == 2){
-        userPhoto3.image = selectedPhoto;
-        imageData3 = UIImageJPEGRepresentation(selectedPhoto, 0.5);
-        imageCount=3;
-    }else{
-        //do nothing.
-    }
-    */
-    
     if(buttonID == 1){
         imageData1 = UIImageJPEGRepresentation(selectedPhoto, 0.5);
         [_addImageButton1 setImage:selectedPhoto forState:UIControlStateNormal];
-        NSLog(@"test added image");
         button1ImageEmpty = false;
     }else if(buttonID == 2){
         imageData2 = UIImageJPEGRepresentation(selectedPhoto, 0.5);
